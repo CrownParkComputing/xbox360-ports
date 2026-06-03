@@ -1,0 +1,16 @@
+# Genuine runtime improvement (NOT applied — saved for reference).
+# thirdparty/rexglue-sdk/src/kernel/xam/apps/xmp_app.cpp, case 0x0007003D
+# XMPCaptureOutput was returning X_E_FAIL (unimplemented). Music-reactive titles
+# call it during init; the failure is harmless to Daytona but worth fixing.
+# Replace the case body with:
+#
+#   case 0x0007003D: {  // XMPCaptureOutput
+#     REXKRNL_DEBUG("XMPCaptureOutput(buf={:08X}, len={:08X})", buffer_ptr, buffer_length);
+#     if (buffer_ptr && buffer_length) std::memset(buffer, 0, buffer_length);
+#     return X_E_SUCCESS;
+#   }
+# (also add `#include <cstring>` near the top)
+#
+# NOTE: This was TESTED for Space Giraffe and did NOT fix its boot crash — the
+# crash is an unrelated uninitialized callback slot at the GPU-interrupt-context
+# object (0x40001600 +40 == null). Kept only as a legit standalone improvement.

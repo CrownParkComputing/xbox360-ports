@@ -1,0 +1,8 @@
+[project]
+sdk_version = "0.8.0.0"
+name = "geometrywars"
+
+[entrypoint]
+file_path = "../assets/default.xex"
+out_directory_path = "../generated"
+includes = [ "gw_rexglue.toml" ]

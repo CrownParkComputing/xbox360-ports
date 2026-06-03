@@ -1,0 +1,22 @@
+# Diagnostic patch for thirdparty/rexglue-sdk/src/system/function_dispatcher.cpp
+# Makes InvalidFunctionTrap dump the caller (ctx.lr) + a guest stack backtrace
+# before aborting, so the origin of null/invalid indirect calls can be found.
+# Apply by replacing the body of InvalidFunctionTrap with:
+#
+# static void InvalidFunctionTrap(PPCContext& ctx, uint8_t* base) {
+#   REXLOG_ERROR("[SG-DIAG] InvalidFunctionTrap target={:08X} lr={:08X} ctr={:08X} sp={:08X} "
+#                "r3={:08X} r4={:08X} r11={:08X} r12={:08X}",
+#                ctx.last_indirect_target, (uint32_t)ctx.lr, (uint32_t)ctx.ctr.u32,
+#                ctx.r1.u32, ctx.r3.u32, ctx.r4.u32, ctx.r11.u32, ctx.r12.u32);
+#   uint32_t sp = ctx.r1.u32;
+#   for (uint32_t depth = 0; depth < 40; ++depth) {
+#     if (sp == 0 || (sp & 3) != 0) break;
+#     uint32_t caller_sp = rex::memory::load_and_swap<uint32_t>(base + sp);
+#     if (caller_sp == 0 || caller_sp <= sp || (caller_sp & 3) != 0) break;
+#     uint32_t saved_lr = rex::memory::load_and_swap<uint32_t>(base + (caller_sp - 8));
+#     REXLOG_ERROR("[SG-DIAG]   bt#{:02} sp={:08X} saved_lr={:08X}", depth, sp, saved_lr);
+#     sp = caller_sp;
+#   }
+#   REX_FATAL("Call to invalid or unregistered function at guest address 0x{:08X}",
+#             ctx.last_indirect_target);
+# }

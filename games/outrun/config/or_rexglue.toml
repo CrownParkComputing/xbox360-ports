@@ -1,0 +1,5 @@
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+[functions]

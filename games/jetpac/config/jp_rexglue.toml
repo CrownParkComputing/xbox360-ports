@@ -1,0 +1,16 @@
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+[functions]
+0x82122B00 = {}
+0x82122C20 = {}
+0x82122CC0 = {}
+0x82122D20 = {}
+0x82122E70 = {}
+0x82122FE8 = {}
+0x82123108 = {}
+0x82129118 = {}
+0x821114A8 = {}
+0x820D1300 = {}
+0x820F1400 = {}
