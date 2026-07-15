@@ -48,6 +48,14 @@ case "$NAME" in
     # RR6 4E4D07D3; it existed only in the D3D12 translator, now ported to Vulkan/SPIR-V.)
     GAME_FLAGS+=(--use_fuzzy_alpha_epsilon=true)
     ;;
+  jetpac)
+    # No per-game flags needed. Jetpac's missing/black backgrounds were a NaN-in-tfetch
+    # bug (stacked-texture Z became NaN, killing the sample); the NaN->0 guard is baked
+    # into the SDK's SPIR-V translator, so it "just works" with the base flags.
+    # Caveat: if a launch ever hangs trying to load a stale profile, remove
+    #   ~/.local/share/jetpac/*/profile   (guest account blobs, safe to delete).
+    :
+    ;;
 esac
 
 # Seed-save auto-install: some games (Ridge Racer 6) hard-block with a "corrupted save"
