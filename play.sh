@@ -50,6 +50,23 @@ case "$NAME" in
     ;;
 esac
 
+# Seed-save auto-install: some games (Ridge Racer 6) hard-block with a "corrupted save"
+# message when their save is absent and never create one themselves. If the game ships a
+# committed seed save and none is installed yet, drop it into the user data dir. rexglue does
+# no signature check, so the save (originally made in Xenia) loads; the game re-saves over it.
+SEED="$G/seedsave"
+if [ -d "$SEED" ]; then
+  for xuiddir in "$SEED"/*/; do
+    [ -d "$xuiddir" ] || continue
+    dest="$HOME/.local/share/$NAME/$(basename "$xuiddir")"
+    if [ ! -d "$dest" ]; then
+      mkdir -p "$(dirname "$dest")"
+      cp -r "$xuiddir" "$dest"
+      echo "installed seed save -> $dest"
+    fi
+  done
+fi
+
 # --headless=true: guest dialogs (Xbox Live sign-in prompts, message boxes, keyboard)
 # auto-resolve with the default button instead of drawing the Xenia-style modal.
 env GDK_BACKEND=x11 LD_LIBRARY_PATH="$SDK_OUT" \

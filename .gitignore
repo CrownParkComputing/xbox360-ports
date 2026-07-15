@@ -26,3 +26,7 @@ core.*
 **/generated/sources.cmake
 **/*.bak
 **/extracted
+
+# Ridge Racer 6 seed save (user progress data — auto-installed by run.sh; small, kept for playback)
+!/games/ridgeracer6/seedsave/
+!/games/ridgeracer6/seedsave/**
