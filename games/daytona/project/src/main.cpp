@@ -407,11 +407,12 @@ protected:
     void OnPreSetup(rex::RuntimeConfig& config) override {
         (void)config;
         daytona_debug::SetStage(daytona_debug::AppStage::kPreSetup);
-        REXCVAR_SET(gpu_allow_invalid_fetch_constants, true);
-
-        REXCVAR_SET(vulkan_readback_memexport, true);
-        REXCVAR_SET(vulkan_readback_resolve, true);
-        REXCVAR_SET(vulkan_force_dxt45_rgba8_decode, true);
+        // GPU cvars (gpu_allow_invalid_fetch_constants, readback_memexport,
+        // readback_resolve) now live in the xenos GPU *plugin*, not in rexruntime, so the
+        // executable can't REXCVAR_SET them at link time. Pass them on the command line
+        // instead — play.sh already does. The fork's vulkan_force_dxt45_rgba8_decode (a
+        // DXT4/5 decode workaround for this port's texture flicker) no longer exists at
+        // all; running without it tells us whether upstream fixed the underlying decode.
     }
 
     void OnCreateDialogs(rex::ui::ImGuiDrawer* drawer) override {

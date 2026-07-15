@@ -1,0 +1,43 @@
+# Ridge Racer Unbounded (retail disc title, 4E4D083E)
+#
+# setjmp/longjmp must be recompiled as real host setjmp/longjmp, not as ordinary
+# functions. The XDK image library probes JPEG first; on a PNG the reader takes its
+# error path and longjmps back to the ctor's setjmp. Recompiled as a normal call, the
+# guest regs are restored but HOST control flow falls through into the reader's
+# "success" path with an unwound guest r1 -> restgprlr restores a null r31 -> the
+# caller derefs null. This is what blocked SoulCalibur/BubbleBobble/GeometryWars/
+# SpaceGiraffe. Found by body signature in the generated code:
+#   setjmp  0x82B8F5C0 = stfd f14..f31 -> 0(r3) (18 FPR stores) + mfcr
+#   longjmp 0x82B8F890 = early lwz r0,312(r3); r7=r3; lfd f14..f31 <- 0(r7) (18 loads)
+setjmp_address = 0x82B8F5C0
+longjmp_address = 0x82B8F890
+
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+# Indirect-call targets the analyzer can't reach statically (function pointers in data;
+# the VTable scanner already covers vtable slots). Each was harvested from a runtime
+# "[FATAL] Call to invalid or unregistered function at guest address 0xN".
+[functions]
+0x828D7760 = {}
+0x82913650 = {}
+0x82913658 = {}
+0x823AACD8 = {}
+0x82201F98 = {}
+0x82849F30 = {}
+0x82C93C50 = {}
+0x8284B328 = {}
+0x8284BA80 = {}
+0x8255F258 = {}
+0x8255F120 = {}
+0x82645300 = {}
+0x8265AE68 = {}
+0x82647860 = {}
+0x824350E8 = {}
+0x823AAD18 = {}
+0x82422A40 = {}
+0x82DFE8A8 = {}
+0x82E20368 = {}
+0x82D9C790 = {}
+0x827ADD18 = {}

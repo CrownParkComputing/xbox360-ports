@@ -1,0 +1,257 @@
+[2026-07-06 08:51:02.378] [info] [core] [t1609481] spacegiraffe starting
+[2026-07-06 08:51:02.378] [info] [core] [t1609481]   Game directory: ./extracted
+[2026-07-06 08:51:02.378] [info] [core] [t1609481]   User data:      /home/jon/.local/share/spacegiraffe
+[2026-07-06 08:51:02.378] [info] [core] [t1609481]   Cache root:     /home/jon/.local/share/spacegiraffe/cache
+[2026-07-06 08:51:02.396] [info] [core] [t1609481] RenderDoc API initialized
+[2026-07-06 08:51:02.478] [info] [core] [t1609481] Vulkan instance API version 1.4.350. Enabled layers and extensions:
+[2026-07-06 08:51:02.478] [info] [core] [t1609481] * VK_EXT_debug_utils
+[2026-07-06 08:51:02.478] [info] [core] [t1609481] * VK_KHR_surface
+[2026-07-06 08:51:02.478] [info] [core] [t1609481] * VK_KHR_xcb_surface
+[2026-07-06 08:51:02.478] [info] [gpu] [t1609481] Vulkan Info ({ General }, ID 1): While debugging through RenderDoc, debug output through validation layers is suppressed.
+To show debug output look at the 'DebugOutputMute' capture option in RenderDoc's API, but be aware of false positives from the validation layers.
+[2026-07-06 08:51:02.479] [warning] [core] [t1609481] Available Vulkan physical devices (use the 'vulkan_device' configuration variable to force a specific device):
+[2026-07-06 08:51:02.479] [warning] [core] [t1609481] * 0: NVIDIA GeForce RTX 3060
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] Vulkan device 'NVIDIA GeForce RTX 3060': API 1.4.0, vendor 0x10DE, device 0x2503, driver version 0x988AC080
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] Enabled Vulkan device extensions:
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * VK_EXT_custom_border_color
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * VK_EXT_fragment_shader_interlock
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * VK_EXT_memory_budget
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * VK_EXT_non_seamless_cube_map
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * VK_EXT_robustness2
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * VK_KHR_swapchain
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] Vulkan device properties and enabled features:
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * driverID: NvidiaProprietary
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * driverName: NVIDIA
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * driverInfo: 610.43.02
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * conformanceVersion: 1.4.3.3
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxImageDimension2D: 32768
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxImageDimension3D: 16384
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxImageDimensionCube: 32768
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxImageArrayLayers: 2048
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxStorageBufferRange: 4294967295
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxSamplerAllocationCount: 4000
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxPerStageDescriptorSamplers: 1048576
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxPerStageDescriptorStorageBuffers: 1048576
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxPerStageDescriptorSampledImages: 1048576
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxPerStageResources: 4294967295
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxVertexOutputComponents: 128
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxTessellationEvaluationOutputComponents: 128
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxGeometryInputComponents: 128
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxGeometryOutputComponents: 128
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxFragmentInputComponents: 128
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxFragmentCombinedOutputResources: 4294967295
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxSamplerAnisotropy: 16
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxViewportDimensions[0]: 32768
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxViewportDimensions[1]: 32768
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * minUniformBufferOffsetAlignment: 64
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * minStorageBufferOffsetAlignment: 16
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxFramebufferWidth: 32768
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxFramebufferHeight: 32768
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * framebufferColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * framebufferDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * framebufferStencilSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * framebufferNoAttachmentsSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * sampledImageColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * sampledImageIntegerSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * sampledImageDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * sampledImageStencilSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * standardSampleLocations: 1
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * optimalBufferCopyOffsetAlignment: 1
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * optimalBufferCopyRowPitchAlignment: 1
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * nonCoherentAtomSize: 64
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * robustBufferAccess
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * fullDrawIndexUint32
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * independentBlend
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * geometryShader
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * tessellationShader
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * sampleRateShading
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * depthClamp
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * fillModeNonSolid
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * samplerAnisotropy
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * occlusionQueryPrecise
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * vertexPipelineStoresAndAtomics
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * fragmentStoresAndAtomics
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * shaderClipDistance
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * shaderCullDistance
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * sparseBinding
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * sparseResidencyBuffer
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * samplerMirrorClampToEdge
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * uniformBufferStandardLayout
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * scalarBlockLayout
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * shaderDemoteToHelperInvocation
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * dynamicRendering
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * constantAlphaColorBlendFactors
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * imageViewFormatReinterpretation
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * imageViewFormatSwizzle
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * pointPolygons
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * separateStencilMaskRef
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * shaderSampleRateInterpolationFunctions
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * shaderSignedZeroInfNanPreserveFloat32: 1
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * shaderDenormFlushToZeroFloat32: 0
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * shaderRoundingModeRTEFloat32: 1
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * fragmentShaderSampleInterlock
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * fragmentShaderPixelInterlock
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * nonSeamlessCubeMap
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * customBorderColors
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * customBorderColorWithoutFormat
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * maxCustomBorderColorSamplers: 4000
+[2026-07-06 08:51:02.479] [info] [core] [t1609481] * nullDescriptor
+[2026-07-06 08:51:02.789] [info] [core] [t1609481] VulkanPresenter: Created 1280x720 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:51:02.793] [debug] [sys] [t1609481] Installed MMIO handler for physical address translation
+[2026-07-06 08:51:02.793] [info] [sys] [t1609481] FunctionDispatcher initialized
+[2026-07-06 08:51:02.793] [info] [core] [t1609481] SDL: Using version 3.5.0
+[2026-07-06 08:51:02.794] [info] [core] [t1609481] MnK input driver initialized
+[2026-07-06 08:51:02.794] [info] [sys] [t1609481] Input system initialized
+[2026-07-06 08:51:02.797] [debug] [apu] [t1609481] XMA: Registered MMIO handlers at 0x7FEA0000-0x7FEAFFFF
+[2026-07-06 08:51:02.854] [info] [sys] [t1609503] XThread::Execute thid 1 (handle=F8000010, 'XMA Decoder (F8000010)', native=FBBFE6C0, <host>)
+[2026-07-06 08:51:02.855] [info] [sys] [t1609481] Audio system initialized
+[2026-07-06 08:51:02.855] [info] [sys] [t1609504] XThread::Execute thid 2 (handle=F8000014, 'Audio Worker (F8000014)', native=FABFD6C0, <host>)
+[2026-07-06 08:51:02.855] [info] [sys] [t1609481]   Mounted /home/jon/Downloads/xbla-recomp-suite/games/spacegiraffe/./extracted at \Device\Harddisk0\Partition1
+[2026-07-06 08:51:02.855] [debug] [fs] [t1609481] Registered symbolic link: game: => \Device\Harddisk0\Partition1
+[2026-07-06 08:51:02.855] [debug] [fs] [t1609481] Registered symbolic link: d: => \Device\Harddisk0\Partition1
+[2026-07-06 08:51:02.855] [debug] [sys] [t1609481]   Registered symbolic links: game:, d:
+[2026-07-06 08:51:02.855] [debug] [sys] [t1609481]   Registered NullDevice for \Device\Harddisk0\{{Partition0,Cache0,Cache1}}
+[2026-07-06 08:51:02.856] [info] [sys] [t1609505] XThread::Execute thid 3 (handle=F8000018, 'GPU Commands (F8000018)', native=F9BFC6C0, <host>)
+[2026-07-06 08:51:02.857] [info] [sys] [t1609481] GPU system initialized (presentation=true)
+[2026-07-06 08:51:02.857] [info] [sys] [t1609481] Runtime initialized successfully
+[2026-07-06 08:51:02.857] [info] [sys] [t1609506] XThread::Execute thid 4 (handle=F800001C, 'GPU VSync (F800001C)', native=EBFFF6C0, <host>)
+[2026-07-06 08:51:02.857] [debug] [sys] [t1609481] Initializing function table at 82440000, size 005A9968 for code 82090000-82354CB4 (+00010000 thunk reserve)
+[2026-07-06 08:51:02.860] [info] [core] [t1609481] Function table initialized for module: code=82090000-82354CB4, image=82000000-82440000
+[2026-07-06 08:51:02.861] [debug] [sys] [t1609481] Registered 7410 recompiled functions (0 duplicates, 0 rejected)
+[2026-07-06 08:51:02.861] [debug] [sys] [t1609481] Runtime setup complete (code: 82090000-82354CB4, image: 82000000-82440000)
+[2026-07-06 08:51:02.935] [info] [gpu] [t1609505] VulkanTextureCache: Format k_Cr_Y1_Cb_Y0_REP (unsigned) is supported via a fallback format (using the Vulkan format 37 instead of the preferred 1000156000)
+[2026-07-06 08:51:02.935] [info] [gpu] [t1609505] VulkanTextureCache: Format k_Y1_Cr_Y0_Cb_REP (unsigned) is supported via a fallback format (using the Vulkan format 37 instead of the preferred 1000156001)
+[2026-07-06 08:51:03.128] [warning] [core] [t1609481] SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+[2026-07-06 08:51:03.128] [info] [core] [t1609481] SDL input driver initialized successfully
+[2026-07-06 08:51:03.128] [info] [sys] [t1609481] Loading XEX image: game:\default.xex
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] created symbols for import library xam with 40 imports
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x1c1 (VdHSIOCalibrationLock) -> 0xffcab000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x1c0 (VdGpuClockInMHz) -> 0xffcac000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x158 (XboxKrnlVersion) -> 0x30009000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x1be (VdGlobalDevice) -> 0xffcae000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x266 (KeCertMonitorData) -> 0x30003000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x193 (XexExecutableModuleHandle) -> 0x30006000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x1ae (ExLoadedCommandLine) -> 0x30008000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x59 (KeDebugMonitorData) -> 0x30002000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0x1b (ExThreadObjectType) -> 0x30000000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] Patched variable import xboxkrnl:0xad (KeTimeStampBundle) -> 0x3000a000
+[2026-07-06 08:51:03.165] [debug] [core] [t1609481] created symbols for import library xboxkrnl with 127 imports
+[2026-07-06 08:51:03.166] [debug] [sys] [t1609481]   XEX image loaded successfully
+[2026-07-06 08:51:03.166] [info] [sys] [t1609520] XThread::Execute thid 5 (handle=F8000024, 'Kernel Dispatch (F8000024)', native=BBBFE6C0, <host>)
+[2026-07-06 08:51:03.169] [info] [sys] [t1609481] KernelState: Preparing module launch...
+[2026-07-06 08:51:03.169] [debug] [sys] [t1609481]   Module prepared on thread ''
+[2026-07-06 08:51:03.169] [info] [core] [t1609481] Initializing shader storage for title 5841080C...
+[2026-07-06 08:51:03.171] [info] [gpu] [t1609521] SetInterruptCallback(820C2008, 40001600)
+[2026-07-06 08:51:03.174] [debug] [krnl] [t1609521] XAudioRegisterRenderDriverClient called! callback_ptr=7018F240 driver_ptr=4000EF50
+[2026-07-06 08:51:03.174] [debug] [apu] [t1609521] AudioSystem::RegisterClient: callback=82125AF8 callback_arg=4000D64C
+[2026-07-06 08:51:03.174] [debug] [apu] [t1609521] AudioSystem::RegisterClient: using client index=0 queued_frames=8
+[2026-07-06 08:51:03.193] [info] [core] [t1609481] VulkanPresenter: Created 509x675 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:51:03.198] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.198] [debug] [krnl] [t1609521] XamNotifyCreateListener(mask=0x0000000000000021, is_system=0, max_version=2) -> handle=F8000054
+[2026-07-06 08:51:03.198] [debug] [krnl] [t1609521] XMPCreateTitlePlaylist(7018F5D0, 00000003, 82000EB8(MyPlaylist), 00000000, 823AAB4C, 400121A0)
+[2026-07-06 08:51:03.198] [debug] [krnl] [t1609521] XMPCreateTitlePlaylist(7018F5A0, 00000001, 82000EA0(MyPlaylist2), 00000000, 00000000, 40012340)
+[2026-07-06 08:51:03.198] [debug] [krnl] [t1609521] XMPSetPlaybackBehavior(00000000, 00000000, 00000000)
+[2026-07-06 08:51:03.198] [debug] [sys] [t1609521] BroadcastNotification(id=0xa000002, data=0) to 1 listeners
+[2026-07-06 08:51:03.198] [debug] [krnl] [t1609521] XMPPlayTitlePlaylist(00000002, 00000000)
+[2026-07-06 08:51:03.198] [warning] [krnl] [t1609521] Playlist playback not supported
+[2026-07-06 08:51:03.198] [debug] [sys] [t1609521] BroadcastNotification(id=0xa000001, data=1) to 1 listeners
+[2026-07-06 08:51:03.198] [debug] [sys] [t1609521] BroadcastNotification(id=0xa000002, data=1) to 1 listeners
+[2026-07-06 08:51:03.198] [debug] [krnl] [t1609521] XMPCaptureOutput(...)
+[2026-07-06 08:51:03.199] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.199] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.199] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=1
+[2026-07-06 08:51:03.199] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.199] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.200] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.200] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.200] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=2
+[2026-07-06 08:51:03.200] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.200] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.200] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:03.200] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:03.201] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.201] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.201] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=1
+[2026-07-06 08:51:03.201] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.201] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.202] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.202] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.202] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=2
+[2026-07-06 08:51:03.202] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.202] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.203] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.203] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.203] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=3
+[2026-07-06 08:51:03.203] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.203] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.204] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.204] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.204] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=4
+[2026-07-06 08:51:03.204] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.204] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.205] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.205] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.205] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=5
+[2026-07-06 08:51:03.205] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.205] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.206] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.206] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.206] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=6
+[2026-07-06 08:51:03.206] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.206] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.207] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.207] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.207] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=7
+[2026-07-06 08:51:03.207] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.207] [debug] [apu] [t1609504] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:51:03.208] [debug] [krnl] [t1609504] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:51:03.208] [debug] [apu] [t1609504] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:51:03.208] [debug] [apu] [t1609504] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=8
+[2026-07-06 08:51:03.208] [debug] [apu] [t1609504] AudioWorker: callback returned for client 0
+[2026-07-06 08:51:03.209] [error] [core] [t1609521] [SG-WA] sub_820F3FF0: held=40001600 has null method slot; skipping release for obj=7018E430
+[2026-07-06 08:51:05.248] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:05.675] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:05.675] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:05.760] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:05.760] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:05.781] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:05.824] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:51:05.824] [debug] [apu] [t1609536] SDLCallback: no frames queued (silence)
+[2026-07-06 08:55:42.696] [info] [core] [t1609481] VulkanPresenter: Created 509x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:51.852] [info] [core] [t1609481] VulkanPresenter: Created 510x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:51.873] [info] [core] [t1609481] VulkanPresenter: Created 512x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:51.898] [info] [core] [t1609481] VulkanPresenter: Created 523x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:51.917] [info] [core] [t1609481] VulkanPresenter: Created 554x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:51.941] [info] [core] [t1609481] VulkanPresenter: Created 597x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:51.959] [info] [core] [t1609481] VulkanPresenter: Created 626x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:51.979] [info] [core] [t1609481] VulkanPresenter: Created 649x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:51.999] [info] [core] [t1609481] VulkanPresenter: Created 684x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.016] [info] [core] [t1609481] VulkanPresenter: Created 694x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.030] [info] [core] [t1609481] VulkanPresenter: Created 711x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.042] [info] [core] [t1609481] VulkanPresenter: Created 715x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.056] [info] [core] [t1609481] VulkanPresenter: Created 724x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.076] [info] [core] [t1609481] VulkanPresenter: Created 729x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.089] [info] [core] [t1609481] VulkanPresenter: Created 731x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.105] [info] [core] [t1609481] VulkanPresenter: Created 733x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.125] [info] [core] [t1609481] VulkanPresenter: Created 734x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.139] [info] [core] [t1609481] VulkanPresenter: Created 739x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.160] [info] [core] [t1609481] VulkanPresenter: Created 745x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.173] [info] [core] [t1609481] VulkanPresenter: Created 755x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.189] [info] [core] [t1609481] VulkanPresenter: Created 771x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.208] [info] [core] [t1609481] VulkanPresenter: Created 790x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.223] [info] [core] [t1609481] VulkanPresenter: Created 804x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.242] [info] [core] [t1609481] VulkanPresenter: Created 819x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.257] [info] [core] [t1609481] VulkanPresenter: Created 824x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.274] [info] [core] [t1609481] VulkanPresenter: Created 834x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.293] [info] [core] [t1609481] VulkanPresenter: Created 840x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.307] [info] [core] [t1609481] VulkanPresenter: Created 844x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.323] [info] [core] [t1609481] VulkanPresenter: Created 847x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.357] [info] [core] [t1609481] VulkanPresenter: Created 848x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.475] [info] [core] [t1609481] VulkanPresenter: Created 849x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.493] [info] [core] [t1609481] VulkanPresenter: Created 852x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.507] [info] [core] [t1609481] VulkanPresenter: Created 859x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.523] [info] [core] [t1609481] VulkanPresenter: Created 871x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.540] [info] [core] [t1609481] VulkanPresenter: Created 884x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.559] [info] [core] [t1609481] VulkanPresenter: Created 891x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.575] [info] [core] [t1609481] VulkanPresenter: Created 901x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:58:52.590] [info] [core] [t1609481] VulkanPresenter: Created 905x1380 swapchain with format 44, color space 0, presentation mode 0

@@ -1,0 +1,7 @@
+[project]
+sdk_version = "0.8.0"
+name = "soulcalibur2"
+[entrypoint]
+file_path = "../assets/default.xex"
+out_directory_path = "../generated"
+includes = [ "sc2_rexglue.toml" ]

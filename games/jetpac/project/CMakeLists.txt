@@ -40,7 +40,7 @@ add_executable(jetpac
 
 # Let rexglue_configure_target add: entry point, rex_app.cpp, mcmodel=large,
 # GTK3, RPATH, and other platform flags.
-rexglue_configure_target(jetpac)
+rexglue_configure_target(jetpac GPU_PLUGINS xenos)
 
 target_include_directories(jetpac PRIVATE
     ${CMAKE_SOURCE_DIR}/../generated

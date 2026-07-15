@@ -5,9 +5,9 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Space Giraffe XBLA uses the daytonaxbla branch of ReXGlue (vendored/shared).
+# Space Giraffe XBLA uses the ReXGlue SDK
 set(REXGLUE_SDK_SOURCE_DIR
-    "${CMAKE_SOURCE_DIR}/../thirdparty/rexglue-sdk"
+    "/home/jon/rexglue-sdk"
     CACHE PATH "Path to the required ReXGlue SDK source tree")
 
 if(EXISTS "${REXGLUE_SDK_SOURCE_DIR}/CMakeLists.txt")
@@ -47,7 +47,7 @@ target_include_directories(spacegiraffe PRIVATE
 )
 
 target_link_libraries(spacegiraffe PRIVATE
-    rex::runtime
+    rexruntime
 )
 
 target_compile_definitions(spacegiraffe PRIVATE PPC_INCLUDE_DETAIL)
@@ -68,7 +68,7 @@ if(WIN32)
     )
 else()
     target_link_options(spacegiraffe PRIVATE
-        -Wl,--whole-archive $<TARGET_FILE:rex::runtime> -Wl,--no-whole-archive
+        -Wl,--whole-archive $<TARGET_FILE:rexruntime> -Wl,--no-whole-archive
     )
 endif()
 

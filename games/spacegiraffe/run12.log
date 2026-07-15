@@ -1,0 +1,124 @@
+[2026-07-06 09:15:23.405] [info] [core] [t1612433] spacegiraffe starting
+[2026-07-06 09:15:23.405] [info] [core] [t1612433]   Game directory: ./extracted
+[2026-07-06 09:15:23.405] [info] [core] [t1612433]   User data:      /home/jon/.local/share/spacegiraffe
+[2026-07-06 09:15:23.405] [info] [core] [t1612433]   Cache root:     /home/jon/.local/share/spacegiraffe/cache
+[2026-07-06 09:15:23.429] [info] [core] [t1612433] RenderDoc API initialized
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] Vulkan instance API version 1.4.350. Enabled layers and extensions:
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_EXT_debug_utils
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_KHR_surface
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_KHR_xcb_surface
+[2026-07-06 09:15:23.548] [info] [gpu] [t1612433] Vulkan Info ({ General }, ID 1): While debugging through RenderDoc, debug output through validation layers is suppressed.
+To show debug output look at the 'DebugOutputMute' capture option in RenderDoc's API, but be aware of false positives from the validation layers.
+[2026-07-06 09:15:23.548] [warning] [core] [t1612433] Available Vulkan physical devices (use the 'vulkan_device' configuration variable to force a specific device):
+[2026-07-06 09:15:23.548] [warning] [core] [t1612433] * 0: NVIDIA GeForce RTX 3060
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] Vulkan device 'NVIDIA GeForce RTX 3060': API 1.4.0, vendor 0x10DE, device 0x2503, driver version 0x988AC080
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] Enabled Vulkan device extensions:
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_EXT_custom_border_color
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_EXT_fragment_shader_interlock
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_EXT_memory_budget
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_EXT_non_seamless_cube_map
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_EXT_robustness2
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * VK_KHR_swapchain
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] Vulkan device properties and enabled features:
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * driverID: NvidiaProprietary
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * driverName: NVIDIA
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * driverInfo: 610.43.02
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * conformanceVersion: 1.4.3.3
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxImageDimension2D: 32768
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxImageDimension3D: 16384
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxImageDimensionCube: 32768
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxImageArrayLayers: 2048
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxStorageBufferRange: 4294967295
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxSamplerAllocationCount: 4000
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxPerStageDescriptorSamplers: 1048576
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxPerStageDescriptorStorageBuffers: 1048576
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxPerStageDescriptorSampledImages: 1048576
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxPerStageResources: 4294967295
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxVertexOutputComponents: 128
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxTessellationEvaluationOutputComponents: 128
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxGeometryInputComponents: 128
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxGeometryOutputComponents: 128
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxFragmentInputComponents: 128
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxFragmentCombinedOutputResources: 4294967295
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxSamplerAnisotropy: 16
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxViewportDimensions[0]: 32768
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxViewportDimensions[1]: 32768
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * minUniformBufferOffsetAlignment: 64
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * minStorageBufferOffsetAlignment: 16
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxFramebufferWidth: 32768
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * maxFramebufferHeight: 32768
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * framebufferColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * framebufferDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * framebufferStencilSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * framebufferNoAttachmentsSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * sampledImageColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * sampledImageIntegerSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * sampledImageDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * sampledImageStencilSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * standardSampleLocations: 1
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * optimalBufferCopyOffsetAlignment: 1
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * optimalBufferCopyRowPitchAlignment: 1
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * nonCoherentAtomSize: 64
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * robustBufferAccess
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * fullDrawIndexUint32
+[2026-07-06 09:15:23.548] [info] [core] [t1612433] * independentBlend
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * geometryShader
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * tessellationShader
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * sampleRateShading
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * depthClamp
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * fillModeNonSolid
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * samplerAnisotropy
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * occlusionQueryPrecise
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * vertexPipelineStoresAndAtomics
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * fragmentStoresAndAtomics
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * shaderClipDistance
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * shaderCullDistance
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * sparseBinding
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * sparseResidencyBuffer
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * samplerMirrorClampToEdge
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * uniformBufferStandardLayout
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * scalarBlockLayout
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * shaderDemoteToHelperInvocation
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * dynamicRendering
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * constantAlphaColorBlendFactors
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * imageViewFormatReinterpretation
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * imageViewFormatSwizzle
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * pointPolygons
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * separateStencilMaskRef
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * shaderSampleRateInterpolationFunctions
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * shaderSignedZeroInfNanPreserveFloat32: 1
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * shaderDenormFlushToZeroFloat32: 0
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * shaderRoundingModeRTEFloat32: 1
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * fragmentShaderSampleInterlock
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * fragmentShaderPixelInterlock
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * nonSeamlessCubeMap
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * customBorderColors
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * customBorderColorWithoutFormat
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * maxCustomBorderColorSamplers: 4000
+[2026-07-06 09:15:23.549] [info] [core] [t1612433] * nullDescriptor
+[2026-07-06 09:15:23.862] [info] [core] [t1612433] VulkanPresenter: Created 1280x720 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 09:15:23.865] [info] [sys] [t1612433] FunctionDispatcher initialized
+[2026-07-06 09:15:23.866] [info] [core] [t1612433] SDL: Using version 3.5.0
+[2026-07-06 09:15:23.866] [info] [core] [t1612433] MnK input driver initialized
+[2026-07-06 09:15:23.866] [info] [sys] [t1612433] Input system initialized
+[2026-07-06 09:15:23.920] [info] [sys] [t1612459] XThread::Execute thid 1 (handle=F8000010, 'XMA Decoder (F8000010)', native=C5A886C0, <host>)
+[2026-07-06 09:15:23.921] [info] [sys] [t1612433] Audio system initialized
+[2026-07-06 09:15:23.921] [info] [sys] [t1612460] XThread::Execute thid 2 (handle=F8000014, 'Audio Worker (F8000014)', native=B3FFF6C0, <host>)
+[2026-07-06 09:15:23.921] [info] [sys] [t1612433]   Mounted /home/jon/Downloads/xbla-recomp-suite/games/spacegiraffe/./extracted at \Device\Harddisk0\Partition1
+[2026-07-06 09:15:23.922] [info] [sys] [t1612461] XThread::Execute thid 3 (handle=F8000018, 'GPU Commands (F8000018)', native=B2FFE6C0, <host>)
+[2026-07-06 09:15:23.923] [info] [sys] [t1612433] GPU system initialized (presentation=true)
+[2026-07-06 09:15:23.923] [info] [sys] [t1612433] Runtime initialized successfully
+[2026-07-06 09:15:23.923] [info] [sys] [t1612462] XThread::Execute thid 4 (handle=F800001C, 'GPU VSync (F800001C)', native=B1FFD6C0, <host>)
+[2026-07-06 09:15:23.926] [info] [core] [t1612433] Function table initialized for module: code=82090000-82354CB4, image=82000000-82440000
+[2026-07-06 09:15:24.005] [info] [gpu] [t1612461] VulkanTextureCache: Format k_Cr_Y1_Cb_Y0_REP (unsigned) is supported via a fallback format (using the Vulkan format 37 instead of the preferred 1000156000)
+[2026-07-06 09:15:24.005] [info] [gpu] [t1612461] VulkanTextureCache: Format k_Y1_Cr_Y0_Cb_REP (unsigned) is supported via a fallback format (using the Vulkan format 37 instead of the preferred 1000156001)
+[2026-07-06 09:15:24.160] [warning] [core] [t1612433] SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+[2026-07-06 09:15:24.160] [info] [core] [t1612433] SDL input driver initialized successfully
+[2026-07-06 09:15:24.160] [info] [sys] [t1612433] Loading XEX image: game:\default.xex
+[2026-07-06 09:15:24.194] [info] [sys] [t1612476] XThread::Execute thid 5 (handle=F8000024, 'Kernel Dispatch (F8000024)', native=95BF66C0, <host>)
+[2026-07-06 09:15:24.197] [info] [sys] [t1612433] KernelState: Preparing module launch...
+[2026-07-06 09:15:24.197] [info] [core] [t1612433] Initializing shader storage for title 5841080C...
+[2026-07-06 09:15:24.202] [info] [gpu] [t1612477] SetInterruptCallback(820C2008, 40001600)
+[2026-07-06 09:15:24.217] [info] [core] [t1612433] VulkanPresenter: Created 1261x1380 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 09:15:24.255] [warning] [krnl] [t1612477] Playlist playback not supported
+[2026-07-06 09:15:24.268] [error] [core] [t1612477] [SG-WA] sub_820F3FF0: held=40001600 has null method slot; skipping release for obj=7018E430

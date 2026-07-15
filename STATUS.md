@@ -1,39 +1,109 @@
-# Per-title status (as of last full test pass)
+# Per-title status — 2026-07-13 (official rexglue-sdk `development` + local fixes)
 
-Tested against ReXGlue SDK `daytonaxbla` @ `82a88a3`.
+Sorted game packages live in `/home/jon/XBLA/{1-PLAYABLE,2-NEEDS-FIXES,3-NOT-WORKING}/`.
+Launch any built port with `./play.sh <game>` (full license, no sign-in modals, dev overlays off,
+plus any per-game workaround flags — see `play.sh`).
 
-All five titles **compile and link** and **boot through** XEX load, the Vulkan
-swapchain, audio, and shader-storage init. They diverge at / after the graphics
-device-init handshake (`VdSetGraphicsInterruptCallback`):
+## 1-PLAYABLE (user-verified)
 
-| Game | Title ID | xex | Extra work needed | Result |
-|------|----------|-----|-------------------|--------|
-| **Daytona** | 58410B1D | large | full bespoke port (841-line stubs, 7935-line codegen patch, GPU cvars) | **Plays**, with Vulkan texture flicker |
-| **Geometry Wars** | 584107ED | 0.44 MB | 1 function boundary | **Crash** `call 0x00000000` |
-| **Space Giraffe** | 5841080C | 1.6 MB | 5 function boundaries | **Crash** `call 0x00000000` |
-| **Jetpac Refuelled** | 584107FB | 1.5 MB | 7 XUsbcam stubs + 8 thunks + 3 boundaries | **Boots + renders a frame**, then stalls |
-| **OutRun** | 58410968 | 2.3 MB | none (clean) | **Boots**, hangs during shader-pipeline creation |
+| Game | Verdict |
+|------|---------|
+| SoulCalibur | "perfect" — fixed by setjmp/longjmp config (see below) |
+| SoulCalibur II HD | "working 100%" — fixed by the SPIR-V shader resync + load-shader pitch contract |
+| Bubble Bobble Neo | works — setjmp/longjmp fix |
+| Space Giraffe | works — same fix + thunk-cluster batch |
+| Hydro Thunder Hurricane | works fine; white/untextured surfaces fixed by the exp_adjust fix |
+| OutRun | plays well; gear-change SFX loops (XMA one-shot completion bug) |
+| Choplifter HD | plays; colours correct **only via `--render_target_path_vulkan=fsi`**, which `play.sh` now passes automatically. See "Host render-target path" below. |
 
-## Root-cause findings (so a future ReXGlue version can be judged against them)
+## 2-NEEDS-FIXES (runs, impaired)
 
-- **Not graphics-API related.** The renderer is Xenia's Vulkan backend, byte-for-byte.
-  OpenGL is not an option and would not help; the GW/SG crash is CPU-side, pre-render.
-- **Not the HLE/kernel layer.** ReXGlue's `xboxkrnl_*`, `graphics_system`, interrupt
-  dispatch, and even the `0xBE` stack-poison are byte-identical to (working) Xenia.
-- **The GW/SG crash is a recompiler (codegen) correctness bug** — the one component
-  ReXGlue wrote itself (no Xenia equivalent). Traced with Xenia gdb as ground truth to
-  an argument divergence into `sub_82047398`: a heap pointer that Xenia produces ends
-  up null / in the wrong register in ReXGlue, cascading into an uninitialised object
-  whose virtual `Release` calls through a null vtable slot. Full trace in
-  `games/geometrywars/NOTES.md` and `games/spacegiraffe/NOTES.md`.
-- **Jetpac** needs only missing-function declarations + camera stubs; it reaches
-  rendering. The post-frame stall is the next thing to investigate.
-- **OutRun** hangs in shader/pipeline setup — likely async-shader or a guest thread
-  spin; no crash.
+| Game | Problem | Diagnosis |
+|------|---------|-----------|
+| Bionic Commando Rearmed 1 | **renders, but frozen** — the picture appears and never advances | Crash is GONE: codegen is clean (0 unresolved calls) and it presents ~2400 frames with **zero fatals**, 116 fns in toml. The guest is ALIVE (timers fire, APCs deliver) but its logic never advances; every presented frame is byte-identical. Fixed along the way: `cache:` was unmounted so its `cache:\` opens failed (now mounted — real bug, but NOT the freeze). Prime suspect: **`XamTaskCloseHandle` is a stub** — XamTask is the async-task API; if a scheduled task never signals completion the title blocks forever on a loading screen. Compare `src/kernel/xam/` against xenia's `xam_task.cc` (xenia implements `XamTaskSchedule`/`XamTaskCloseHandle`). Also seen: `BroadcastNotification -> 0 listeners`. Next: run the same xex under xenia (oracle) to confirm it gets further. |
+| Jetpac Refuelled | title art + in-game sprites invisible (geometry draws, nothing shown) | NOT the exp_adjust bug and NOT fixed by `fsi` (which makes it fully black). Localized: the invisible content is drawn by ONE pixel shader (`PS FE2EB03A937B160F`, `tfetch3D` + `mul oC0, r0, r1`) whose fetch constant says `k2DOrStacked` — the 3D-or-stacked ambiguous path. Ruled out: alpha/blend (the *opaque* draw is invisible too), DXT2_3 handling, geometry shaders, EDRAM path, guest-side art decode (the DXT1 data at `0x1DA1C000` is real). Next: force the fetch result to (1,1,1,1) in `spirv_translator_fetch.cpp` — if solid quads appear, it's the texture sample (array-layer index for a stacked texture); if not, it's the geometry. |
 
-## What "fixed" would look like on a new ReXGlue release
+## 3-NOT-WORKING
 
-Run `./retest.sh`. Signs of progress:
-- GW/SG move off `CRASH-NULL-CALL` → the recompiler arg bug was fixed.
-- Jetpac/OutRun reach `RENDERS (N frames)` with N growing → real gameplay.
-- Daytona flicker is a separate renderer issue; judged by eye, not the harness.
+| Game | Problem |
+|------|---------|
+| Daytona | **never presents a single frame** (0 PRESENT on both RT paths, no FATAL) — needs a from-scratch bring-up; its old 7,935-line codegen patch is dead (671/690 hunks fail). Not a GPU-path issue. |
+| Geometry Wars | off the old crash (setjmp fix), now silent no-present stall |
+| Trials HD | black screen; XUI menu files never load from .pak archives |
+| Rainbow Islands | grind incomplete (setjmp fix applied, more boundaries to clear) |
+| Bionic Commando Rearmed 2 | built, but **zero** functions in its toml and never run — from-scratch bring-up. Try the improved `bringup.sh` first (see below). |
+
+---
+
+## SDK bugs fixed 2026-07-13
+
+**Texture `exp_adjust` read from the wrong fetch-constant word** — the single root cause of the
+white/untextured surfaces across ALL ports (Choplifter's white sprites, Hydro Thunder's white
+barrels). The SPIR-V translator applied the result exponent bias from fetch-constant **word 4**;
+`exp_adjust` lives in **word 3** (`xenos.h:1239`). Word 4 bits 13:18 fall inside `lod_bias`, so every
+texel was multiplied by `2^(lod_bias bits)`: bias 0 → x1 (correct by accident — why most surfaces
+always looked fine), positive → x16/x65536 → saturates to flat WHITE, negative → crushed to black.
+The tree's own DXBC translator already read word 3 correctly; the bug was SPIR-V-only.
+Matches upstream xenia `32889f51b`. The textures were always bound, loaded and decoded correctly —
+the damage happened *after* sampling, which is why every texture-cache diagnostic came back clean.
+
+**10:10:10:2 render targets stored at 8 bits/channel** — `GetColorVulkanFormat` returned
+`VK_FORMAT_A8B8G8R8_UNORM_PACK32` instead of `A2B10G10R10_UNORM_PACK32`, silently truncating two bits
+of colour precision. (Does not affect Choplifter, which uses the 7e3 float variant.)
+
+Plus: SPIR-V shader blob resync + load-shader pitch contract (SC2 corruption), codegen shared-epilogue
+tail calls, XUsbcam build, dev-overlay cvar, resolve no-op, socket recv timeout.
+
+## Host render-target path — OPEN BUG
+
+The Vulkan **host render-target (FBO)** path blows every lit/HDR surface out toward RED.
+`--render_target_path_vulkan=fsi` (pixel shader interlock) renders correctly.
+
+Measured on Choplifter's title screen (frames before the 3D scene are byte-identical, so this is
+deterministic):
+
+| path | mean R | mean G | mean B | R−G |
+|---|---|---|---|---|
+| host RT / FBO (default) | 75.7 | 64.6 | 79.7 | **+11.1** (red excess — WRONG) |
+| fsi | 58.0 | 66.2 | 81.7 | **−8.2** (CORRECT) |
+
+Both rexglue AND xenia default to `kHostRenderTargets`, and **xenia renders this game correctly on the
+same GPU with that same default** — so the fork's FBO path is genuinely broken, not merely
+mis-defaulted. Choplifter's RTs are `k_8_8_8_8` + `k_2_10_10_10_FLOAT` (7e3 HDR, host
+`R16G16B16A16_SFLOAT`), resolving the HDR RT to a `k_16_16_16_16_FLOAT` texture with
+`color_exp_bias = -3`. Suspects: the 7e3/float10 clamp in the shader RB output path, the
+transfer/dump shaders, `color_exp_bias` application, or fork-only `direct_host_resolve` (default on).
+
+## `bringup.sh` now harvests codegen's unresolved branch targets
+
+The grind loop only ever scraped addresses from the **runtime** FATAL. But codegen separately
+reports unresolved `b` (tail-call) branches — *"target not in any function"* — and continues anyway
+because of `--force`. Those targets never surface as a runtime crash, so the loop would grind the
+same chain forever, adding one address per rebuild and never converging. That is what had Bionic 1
+stuck.
+
+Registering those targets as function entries cleared codegen (6 unresolved → 0), and the game went
+from dying at 14 frames to presenting ~2400 with zero fatals. `tools/bringup.sh` now feeds
+codegen's own unresolved targets back into the toml and re-runs codegen until it reports none.
+**Rainbow Islands and Bionic 2 are both "grind incomplete" — try them again with this.**
+
+## Debugging technique that cracked these (reuse it)
+
+1. **Xenia is the oracle.** A prebuilt Linux xenia-canary is in the AUR cache:
+   `/home/jon/.cache/yay/xenia-canary-bin/xenia_canary_linux-*.tar.xz`. Run the SAME xex:
+   `xenia_canary games/<g>/extracted/default.xex --license_mask=1`. If xenia renders it right and we
+   don't, the bug is ours and it is findable.
+2. **Dump our own frames** instead of asking a human to look. Temp hook in
+   `src/graphics/vulkan/command_processor.cpp` (the swap function, where `presenter` is in scope)
+   calls `presenter->CaptureGuestOutput()` and writes a PPM: `REX_DUMP_FRAME=<prefix>
+   REX_DUMP_FRAME_EVERY=<n>`. ~5–13 fps headless; Choplifter's title screen lands ~frame 1080.
+3. **Bisect numerically** — `mean(R) − mean(G)` on the dumped frame is a hard pass/fail signal.
+4. Screen-grabbing the xenia *window* does NOT work (Xwayland returns black; Hyprland screencopy
+   crashes the compositor). Capture from inside the plugin instead.
+
+## The big fix (2026-07-12): guest setjmp/longjmp
+The "spin bug" that blocked BB/SC/GW/SG for weeks: the XDK image decoder longjmps out of its
+JPEG-probe error path; recompiled longjmp restored registers but host control flow fell through,
+corrupting the guest stack. Fix = two lines per game in `<prefix>_rexglue.toml`:
+`setjmp_address` / `longjmp_address` (find by body signature: setjmp = `mfcr`+`stfd f14,0(r3)`;
+longjmp = early `lwz r0,312(r3)`). Codegen then redirects them to host setjmp/longjmp.

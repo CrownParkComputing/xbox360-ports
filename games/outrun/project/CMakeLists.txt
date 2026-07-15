@@ -40,7 +40,7 @@ add_executable(outrun
 
 # Let rexglue_configure_target add: entry point, rex_app.cpp, mcmodel=large,
 # GTK3, RPATH, and other platform flags.
-rexglue_configure_target(outrun)
+rexglue_configure_target(outrun GPU_PLUGINS xenos)
 
 target_include_directories(outrun PRIVATE
     ${CMAKE_SOURCE_DIR}/../generated

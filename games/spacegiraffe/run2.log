@@ -1,0 +1,203 @@
+[2026-07-06 08:16:36.657] [info] [core] [t1602671] spacegiraffe starting
+[2026-07-06 08:16:36.657] [info] [core] [t1602671]   Game directory: ./extracted
+[2026-07-06 08:16:36.657] [info] [core] [t1602671]   User data:      /home/jon/.local/share/spacegiraffe
+[2026-07-06 08:16:36.657] [info] [core] [t1602671]   Cache root:     /home/jon/.local/share/spacegiraffe/cache
+[2026-07-06 08:16:36.674] [info] [core] [t1602671] RenderDoc API initialized
+[2026-07-06 08:16:36.759] [info] [core] [t1602671] Vulkan instance API version 1.4.350. Enabled layers and extensions:
+[2026-07-06 08:16:36.759] [info] [core] [t1602671] * VK_EXT_debug_utils
+[2026-07-06 08:16:36.759] [info] [core] [t1602671] * VK_KHR_surface
+[2026-07-06 08:16:36.759] [info] [core] [t1602671] * VK_KHR_xcb_surface
+[2026-07-06 08:16:36.759] [info] [gpu] [t1602671] Vulkan Info ({ General }, ID 1): While debugging through RenderDoc, debug output through validation layers is suppressed.
+To show debug output look at the 'DebugOutputMute' capture option in RenderDoc's API, but be aware of false positives from the validation layers.
+[2026-07-06 08:16:36.760] [warning] [core] [t1602671] Available Vulkan physical devices (use the 'vulkan_device' configuration variable to force a specific device):
+[2026-07-06 08:16:36.760] [warning] [core] [t1602671] * 0: NVIDIA GeForce RTX 3060
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] Vulkan device 'NVIDIA GeForce RTX 3060': API 1.4.0, vendor 0x10DE, device 0x2503, driver version 0x988AC080
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] Enabled Vulkan device extensions:
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * VK_EXT_custom_border_color
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * VK_EXT_fragment_shader_interlock
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * VK_EXT_memory_budget
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * VK_EXT_non_seamless_cube_map
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * VK_EXT_robustness2
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * VK_KHR_swapchain
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] Vulkan device properties and enabled features:
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * driverID: NvidiaProprietary
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * driverName: NVIDIA
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * driverInfo: 610.43.02
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * conformanceVersion: 1.4.3.3
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxImageDimension2D: 32768
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxImageDimension3D: 16384
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxImageDimensionCube: 32768
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxImageArrayLayers: 2048
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxStorageBufferRange: 4294967295
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxSamplerAllocationCount: 4000
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxPerStageDescriptorSamplers: 1048576
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxPerStageDescriptorStorageBuffers: 1048576
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxPerStageDescriptorSampledImages: 1048576
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxPerStageResources: 4294967295
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxVertexOutputComponents: 128
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxTessellationEvaluationOutputComponents: 128
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxGeometryInputComponents: 128
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxGeometryOutputComponents: 128
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxFragmentInputComponents: 128
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxFragmentCombinedOutputResources: 4294967295
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxSamplerAnisotropy: 16
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxViewportDimensions[0]: 32768
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxViewportDimensions[1]: 32768
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * minUniformBufferOffsetAlignment: 64
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * minStorageBufferOffsetAlignment: 16
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxFramebufferWidth: 32768
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxFramebufferHeight: 32768
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * framebufferColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * framebufferDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * framebufferStencilSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * framebufferNoAttachmentsSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * sampledImageColorSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * sampledImageIntegerSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * sampledImageDepthSampleCounts: { 1 | 2 | 4 | 8 }
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * sampledImageStencilSampleCounts: { 1 | 2 | 4 | 8 | 16 }
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * standardSampleLocations: 1
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * optimalBufferCopyOffsetAlignment: 1
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * optimalBufferCopyRowPitchAlignment: 1
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * nonCoherentAtomSize: 64
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * robustBufferAccess
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * fullDrawIndexUint32
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * independentBlend
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * geometryShader
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * tessellationShader
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * sampleRateShading
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * depthClamp
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * fillModeNonSolid
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * samplerAnisotropy
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * occlusionQueryPrecise
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * vertexPipelineStoresAndAtomics
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * fragmentStoresAndAtomics
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * shaderClipDistance
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * shaderCullDistance
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * sparseBinding
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * sparseResidencyBuffer
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * samplerMirrorClampToEdge
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * uniformBufferStandardLayout
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * scalarBlockLayout
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * shaderDemoteToHelperInvocation
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * dynamicRendering
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * constantAlphaColorBlendFactors
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * imageViewFormatReinterpretation
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * imageViewFormatSwizzle
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * pointPolygons
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * separateStencilMaskRef
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * shaderSampleRateInterpolationFunctions
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * shaderSignedZeroInfNanPreserveFloat32: 1
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * shaderDenormFlushToZeroFloat32: 0
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * shaderRoundingModeRTEFloat32: 1
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * fragmentShaderSampleInterlock
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * fragmentShaderPixelInterlock
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * nonSeamlessCubeMap
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * customBorderColors
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * customBorderColorWithoutFormat
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * maxCustomBorderColorSamplers: 4000
+[2026-07-06 08:16:36.760] [info] [core] [t1602671] * nullDescriptor
+[2026-07-06 08:16:37.083] [info] [core] [t1602671] VulkanPresenter: Created 1280x720 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:16:37.087] [debug] [sys] [t1602671] Installed MMIO handler for physical address translation
+[2026-07-06 08:16:37.087] [info] [sys] [t1602671] FunctionDispatcher initialized
+[2026-07-06 08:16:37.087] [info] [core] [t1602671] SDL: Using version 3.5.0
+[2026-07-06 08:16:37.087] [info] [core] [t1602671] MnK input driver initialized
+[2026-07-06 08:16:37.087] [info] [sys] [t1602671] Input system initialized
+[2026-07-06 08:16:37.090] [debug] [apu] [t1602671] XMA: Registered MMIO handlers at 0x7FEA0000-0x7FEAFFFF
+[2026-07-06 08:16:37.144] [info] [sys] [t1602693] XThread::Execute thid 1 (handle=F8000010, 'XMA Decoder (F8000010)', native=3FFFF6C0, <host>)
+[2026-07-06 08:16:37.144] [info] [sys] [t1602671] Audio system initialized
+[2026-07-06 08:16:37.144] [info] [sys] [t1602694] XThread::Execute thid 2 (handle=F8000014, 'Audio Worker (F8000014)', native=3EFFE6C0, <host>)
+[2026-07-06 08:16:37.145] [info] [sys] [t1602671]   Mounted /home/jon/Downloads/xbla-recomp-suite/games/spacegiraffe/./extracted at \Device\Harddisk0\Partition1
+[2026-07-06 08:16:37.145] [debug] [fs] [t1602671] Registered symbolic link: game: => \Device\Harddisk0\Partition1
+[2026-07-06 08:16:37.145] [debug] [fs] [t1602671] Registered symbolic link: d: => \Device\Harddisk0\Partition1
+[2026-07-06 08:16:37.145] [debug] [sys] [t1602671]   Registered symbolic links: game:, d:
+[2026-07-06 08:16:37.145] [debug] [sys] [t1602671]   Registered NullDevice for \Device\Harddisk0\{{Partition0,Cache0,Cache1}}
+[2026-07-06 08:16:37.145] [info] [sys] [t1602695] XThread::Execute thid 3 (handle=F8000018, 'GPU Commands (F8000018)', native=3DFFD6C0, <host>)
+[2026-07-06 08:16:37.146] [info] [sys] [t1602671] GPU system initialized (presentation=true)
+[2026-07-06 08:16:37.146] [info] [sys] [t1602671] Runtime initialized successfully
+[2026-07-06 08:16:37.146] [info] [sys] [t1602696] XThread::Execute thid 4 (handle=F800001C, 'GPU VSync (F800001C)', native=2FFFF6C0, <host>)
+[2026-07-06 08:16:37.146] [debug] [sys] [t1602671] Initializing function table at 82440000, size 005A9968 for code 82090000-82354CB4 (+00010000 thunk reserve)
+[2026-07-06 08:16:37.149] [info] [core] [t1602671] Function table initialized for module: code=82090000-82354CB4, image=82000000-82440000
+[2026-07-06 08:16:37.150] [debug] [sys] [t1602671] Registered 7410 recompiled functions (0 duplicates, 0 rejected)
+[2026-07-06 08:16:37.150] [debug] [sys] [t1602671] Runtime setup complete (code: 82090000-82354CB4, image: 82000000-82440000)
+[2026-07-06 08:16:37.227] [info] [gpu] [t1602695] VulkanTextureCache: Format k_Cr_Y1_Cb_Y0_REP (unsigned) is supported via a fallback format (using the Vulkan format 37 instead of the preferred 1000156000)
+[2026-07-06 08:16:37.227] [info] [gpu] [t1602695] VulkanTextureCache: Format k_Y1_Cr_Y0_Cb_REP (unsigned) is supported via a fallback format (using the Vulkan format 37 instead of the preferred 1000156001)
+[2026-07-06 08:16:37.374] [warning] [core] [t1602671] SDL GameControllerDB: file 'gamecontrollerdb.txt' does not exist.
+[2026-07-06 08:16:37.374] [info] [core] [t1602671] SDL input driver initialized successfully
+[2026-07-06 08:16:37.374] [info] [sys] [t1602671] Loading XEX image: game:\default.xex
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] created symbols for import library xam with 40 imports
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x1c1 (VdHSIOCalibrationLock) -> 0xffcab000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x1c0 (VdGpuClockInMHz) -> 0xffcac000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x158 (XboxKrnlVersion) -> 0x30009000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x1be (VdGlobalDevice) -> 0xffcae000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x266 (KeCertMonitorData) -> 0x30003000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x193 (XexExecutableModuleHandle) -> 0x30006000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x1ae (ExLoadedCommandLine) -> 0x30008000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x59 (KeDebugMonitorData) -> 0x30002000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0x1b (ExThreadObjectType) -> 0x30000000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] Patched variable import xboxkrnl:0xad (KeTimeStampBundle) -> 0x3000a000
+[2026-07-06 08:16:37.420] [debug] [core] [t1602671] created symbols for import library xboxkrnl with 127 imports
+[2026-07-06 08:16:37.421] [debug] [sys] [t1602671]   XEX image loaded successfully
+[2026-07-06 08:16:37.421] [info] [sys] [t1602710] XThread::Execute thid 5 (handle=F8000024, 'Kernel Dispatch (F8000024)', native=F7FFF6C0, <host>)
+[2026-07-06 08:16:37.424] [info] [sys] [t1602671] KernelState: Preparing module launch...
+[2026-07-06 08:16:37.424] [debug] [sys] [t1602671]   Module prepared on thread ''
+[2026-07-06 08:16:37.424] [info] [core] [t1602671] Initializing shader storage for title 5841080C...
+[2026-07-06 08:16:37.428] [info] [gpu] [t1602711] SetInterruptCallback(820C2008, 40001600)
+[2026-07-06 08:16:37.432] [debug] [krnl] [t1602711] XAudioRegisterRenderDriverClient called! callback_ptr=7018F240 driver_ptr=4000EF50
+[2026-07-06 08:16:37.432] [debug] [apu] [t1602711] AudioSystem::RegisterClient: callback=82125AF8 callback_arg=4000D64C
+[2026-07-06 08:16:37.432] [debug] [apu] [t1602711] AudioSystem::RegisterClient: using client index=0 queued_frames=8
+[2026-07-06 08:16:37.447] [info] [core] [t1602671] VulkanPresenter: Created 1045x683 swapchain with format 44, color space 0, presentation mode 0
+[2026-07-06 08:16:37.451] [debug] [apu] [t1602694] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:16:37.451] [debug] [krnl] [t1602711] XamNotifyCreateListener(mask=0x0000000000000021, is_system=0, max_version=2) -> handle=F8000054
+[2026-07-06 08:16:37.451] [debug] [krnl] [t1602711] XMPCreateTitlePlaylist(7018F5D0, 00000003, 82000EB8(MyPlaylist), 00000000, 823AAB4C, 400121A0)
+[2026-07-06 08:16:37.451] [debug] [krnl] [t1602711] XMPCreateTitlePlaylist(7018F5A0, 00000001, 82000EA0(MyPlaylist2), 00000000, 00000000, 40012340)
+[2026-07-06 08:16:37.451] [debug] [krnl] [t1602711] XMPSetPlaybackBehavior(00000000, 00000000, 00000000)
+[2026-07-06 08:16:37.451] [debug] [sys] [t1602711] BroadcastNotification(id=0xa000002, data=0) to 1 listeners
+[2026-07-06 08:16:37.451] [debug] [krnl] [t1602711] XMPPlayTitlePlaylist(00000002, 00000000)
+[2026-07-06 08:16:37.451] [warning] [krnl] [t1602711] Playlist playback not supported
+[2026-07-06 08:16:37.451] [debug] [sys] [t1602711] BroadcastNotification(id=0xa000001, data=1) to 1 listeners
+[2026-07-06 08:16:37.451] [debug] [sys] [t1602711] BroadcastNotification(id=0xa000002, data=1) to 1 listeners
+[2026-07-06 08:16:37.451] [debug] [krnl] [t1602711] XMPCaptureOutput(...)
+[2026-07-06 08:16:37.451] [debug] [apu] [t1602722] SDLCallback: no frames queued (silence)
+[2026-07-06 08:16:37.451] [debug] [apu] [t1602722] SDLCallback: no frames queued (silence)
+[2026-07-06 08:16:37.451] [debug] [apu] [t1602722] SDLCallback: no frames queued (silence)
+[2026-07-06 08:16:37.451] [debug] [apu] [t1602722] SDLCallback: no frames queued (silence)
+[2026-07-06 08:16:37.452] [debug] [krnl] [t1602694] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:16:37.452] [debug] [apu] [t1602694] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:16:37.452] [debug] [apu] [t1602694] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=1
+[2026-07-06 08:16:37.452] [debug] [apu] [t1602694] AudioWorker: callback returned for client 0
+[2026-07-06 08:16:37.452] [debug] [apu] [t1602694] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:16:37.453] [debug] [krnl] [t1602694] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:16:37.453] [debug] [apu] [t1602694] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:16:37.453] [debug] [apu] [t1602694] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=2
+[2026-07-06 08:16:37.453] [debug] [apu] [t1602694] AudioWorker: callback returned for client 0
+[2026-07-06 08:16:37.453] [debug] [apu] [t1602694] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:16:37.454] [debug] [krnl] [t1602694] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:16:37.454] [debug] [apu] [t1602694] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:16:37.454] [debug] [apu] [t1602694] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=3
+[2026-07-06 08:16:37.454] [debug] [apu] [t1602694] AudioWorker: callback returned for client 0
+[2026-07-06 08:16:37.454] [debug] [apu] [t1602694] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:16:37.455] [debug] [krnl] [t1602694] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:16:37.455] [debug] [apu] [t1602694] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:16:37.455] [debug] [apu] [t1602694] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=4
+[2026-07-06 08:16:37.455] [debug] [apu] [t1602694] AudioWorker: callback returned for client 0
+[2026-07-06 08:16:37.455] [debug] [apu] [t1602694] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:16:37.456] [debug] [krnl] [t1602694] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:16:37.456] [debug] [apu] [t1602694] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:16:37.456] [debug] [apu] [t1602694] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=5
+[2026-07-06 08:16:37.456] [debug] [apu] [t1602694] AudioWorker: callback returned for client 0
+[2026-07-06 08:16:37.456] [debug] [apu] [t1602694] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:16:37.457] [debug] [krnl] [t1602694] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:16:37.457] [debug] [apu] [t1602694] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:16:37.457] [debug] [apu] [t1602694] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=6
+[2026-07-06 08:16:37.457] [debug] [apu] [t1602694] AudioWorker: callback returned for client 0
+[2026-07-06 08:16:37.457] [debug] [apu] [t1602694] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:16:37.458] [debug] [krnl] [t1602694] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:16:37.458] [debug] [apu] [t1602694] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:16:37.458] [debug] [apu] [t1602694] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=7
+[2026-07-06 08:16:37.458] [debug] [apu] [t1602694] AudioWorker: callback returned for client 0
+[2026-07-06 08:16:37.458] [debug] [apu] [t1602694] AudioWorker: dispatching callback 82125AF8 with arg 30042000 for client 0
+[2026-07-06 08:16:37.459] [debug] [krnl] [t1602694] XAudioSubmitRenderDriverFrame: driver=41550000 samples=4000D700
+[2026-07-06 08:16:37.459] [debug] [apu] [t1602694] AudioSystem::SubmitFrame called: index=0 samples_ptr=4000D700
+[2026-07-06 08:16:37.459] [debug] [apu] [t1602694] SDLAudioDriver::SubmitFrame: frame_ptr=4000D700 queued_count=8
+[2026-07-06 08:16:37.459] [debug] [apu] [t1602694] AudioWorker: callback returned for client 0
+[2026-07-06 08:16:37.461] [error] [core] [t1602711] [SG-WA] sub_820F3FF0: held=40001600 has null method slot; skipping release for obj=7018E430

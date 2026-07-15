@@ -1,5 +1,5 @@
 [project]
-sdk_version = "0.8.0.0"
+sdk_version = "0.8.0"
 name = "outrun"
 [entrypoint]
 file_path = "../assets/default.xex"

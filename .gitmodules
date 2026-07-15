@@ -1,4 +1,4 @@
 [submodule "rexglue-sdk"]
 	path = rexglue-sdk
-	url = https://github.com/Subarasheese/rexglue-sdk.git
-	branch = daytonaxbla
+	url = https://github.com/CrownParkComputing/rexglue-sdk.git
+	branch = development

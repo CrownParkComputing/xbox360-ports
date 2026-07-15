@@ -1,0 +1,13 @@
+# Guest CRT setjmp/longjmp -> host redirect (fixes the XDK image-decoder
+# format-probe longjmp corrupting the stack; the "spin bug").
+setjmp_address = 0x82183220
+longjmp_address = 0x82182B10
+
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+[functions]
+0x821BE320 = {}
+0x82267398 = {}
+0x8224EA90 = {}

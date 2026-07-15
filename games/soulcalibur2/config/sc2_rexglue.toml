@@ -1,0 +1,10 @@
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+[functions]
+0x824D1528 = {}
+0x8243B570 = {}
+0x82435E90 = {}
+0x82441580 = {}
+0x82435E68 = {}

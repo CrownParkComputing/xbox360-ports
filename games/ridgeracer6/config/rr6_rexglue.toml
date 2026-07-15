@@ -1,0 +1,41 @@
+# Ridge Racer 6 (retail disc, 2005 Xbox 360 launch title). Raw XEX2 — no STFS extraction.
+#
+# setjmp/longjmp must become real host setjmp/longjmp, not ordinary recompiled calls.
+# Recompiled as a normal function, longjmp restores the guest regs but HOST control flow
+# falls through with an unwound guest r1 -> restgprlr yields a null r31 -> the caller
+# null-derefs. This blocked SoulCalibur/BubbleBobble/GeometryWars/SpaceGiraffe, and
+# Unbounded (0 presents -> renders). Found by body signature in the generated code, and
+# applied up front here rather than after debugging a black screen:
+#   setjmp  0x8230E2F0 = 18 FPR stores (f14..f31) -> 0(r3), + mfcr
+#   longjmp 0x8230E1D0 = early lwz r0,312(r3); r7=r3; 18 FPR loads <- 0(r7)
+setjmp_address = 0x8230E2F0
+longjmp_address = 0x8230E1D0
+
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+# Branch/call targets the analyzer could not resolve statically (codegen's own
+# UnresolvedCall list). Registering them as function entries is what clears them.
+[functions]
+0x821111D0 = {}
+0x82138AC8 = {}
+0x82228898 = {}
+0x822288A8 = {}
+0x822A8288 = {}
+0x822A90D8 = {}
+0x82329200 = {}
+0x8232EF30 = {}
+0x822A8EA8 = {}
+0x822C49B0 = {}
+0x82162480 = {}
+0x821624C0 = {}
+0x82179E98 = {}
+0x82162440 = {}
+0x82162550 = {}
+0x82162540 = {}
+0x821624E0 = {}
+0x821C5B60 = {}
+0x82162470 = {}
+0x82162510 = {}
+0x822E25C8 = {}
