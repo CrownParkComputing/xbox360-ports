@@ -1,0 +1,11 @@
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+# The DLC/content-query path (SKIPPER.DLL + a couple engine fns) is intentionally
+# left UNrecompiled. Recompiling it makes the game run its real "load downloadable
+# content" logic against a DLC: device that isn't mounted, which crashes — the same
+# failure Xenia hits (game-compat #2040). Run with --unregistered_function_nonfatal
+# so those top-level DLC queries return null ("no DLC") and the game takes its
+# graceful "PRESS B TO SKIP" path to the content screen instead.
+[functions]

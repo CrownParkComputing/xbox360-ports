@@ -1,0 +1,27 @@
+[project]
+sdk_version = "0.8.0"
+name = "splitsecond"
+# Split/Second is a launcher (DEFAULT.XEX) + engine-DLL title: the 233KB boot XEX
+# imports from "SplitSecond.exe", and the real code lives in SPLITSECOND1.DLL (15.6MB)
+# and SKIPPER.DLL. game_root anchors the VFS so codegen can find all three modules.
+game_root = "../extracted"
+
+[entrypoint]
+file_path = "../extracted/DEFAULT.XEX"
+out_directory_path = "../generated"
+includes = [ "ss_rexglue.toml" ]
+
+# The engine. Recompiled into its own shared library (libsplitsecond_SPLITSECOND1.so),
+# dlopen'd by the runtime when the guest XexLoadImage's it.
+[[modules]]
+file_path = "../extracted/SPLITSECOND1.DLL"
+guest_path = "SPLITSECOND1.DLL"
+out_directory_path = "../generated/splitsecond1"
+includes = [ "ss_splitsecond1_rexglue.toml" ]
+
+# Secondary module (loader/streaming subsystem).
+[[modules]]
+file_path = "../extracted/SKIPPER.DLL"
+guest_path = "SKIPPER.DLL"
+out_directory_path = "../generated/skipper"
+includes = [ "ss_skipper_rexglue.toml" ]

@@ -56,6 +56,15 @@ case "$NAME" in
     #   ~/.local/share/jetpac/*/profile   (guest account blobs, safe to delete).
     :
     ;;
+  splitsecond)
+    # Multi-module title (launcher DEFAULT.XEX + SPLITSECOND1.DLL engine + SKIPPER.DLL
+    # DLC loader). Boots and renders to the "PRESS B TO SKIP" content screen — past where
+    # Xenia crashes (game-compat #2040). SKIPPER's DLC-load path (probing DLC:\SplitSecond0.dll
+    # on an unmounted device) genuinely tries to load absent content and crashes if its
+    # top-level query functions are recompiled; leaving them unrecompiled and returning null
+    # ("no DLC") lets the game take its graceful skip path. That's what this flag does.
+    GAME_FLAGS+=(--unregistered_function_nonfatal=true)
+    ;;
 esac
 
 # Seed-save auto-install: some games (Ridge Racer 6) hard-block with a "corrupted save"
