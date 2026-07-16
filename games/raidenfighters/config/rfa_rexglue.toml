@@ -1,0 +1,20 @@
+# Raiden Fighters Aces (retail disc title) — default.xex is the menu/launcher;
+# jj6/jj7/jj8.xex are the three games (likely via XLaunchNewImage).
+#
+# setjmp/longjmp found by body signature in the generated code (see ridgeracer
+# notes): setjmp 0x82696200 = 18x stfd f14..f31 -> 0(r3) + mfcr; longjmp
+# 0x82695EE0 = adjacent CRT pair, early lwz r0,312(r3), r7=r3 copy, 18 FPR loads.
+setjmp_address = 0x82696200
+longjmp_address = 0x82695EE0
+
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+[functions]
+# codegen-reported unresolved b targets ("target not in any function")
+0x82683A80 = {}
+0x82681C08 = {}
+0x82674638 = {}
+0x825363B8 = {}
+0x82523E80 = {}

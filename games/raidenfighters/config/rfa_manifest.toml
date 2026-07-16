@@ -1,0 +1,27 @@
+[project]
+sdk_version = "0.8.0"
+name = "raidenfighters"
+game_root = "../extracted"
+[entrypoint]
+file_path = "../extracted/default.xex"
+out_directory_path = "../generated"
+includes = [ "rfa_rexglue.toml" ]
+
+# The three games, loaded as modules from the menu's GAME PLAY screen.
+[[modules]]
+file_path = "../extracted/jj6.xex"
+guest_path = "jj6.xex"
+out_directory_path = "../generated/jj6"
+includes = [ "rfa_jj6_rexglue.toml" ]
+
+[[modules]]
+file_path = "../extracted/jj7.xex"
+guest_path = "jj7.xex"
+out_directory_path = "../generated/jj7"
+includes = [ "rfa_jj7_rexglue.toml" ]
+
+[[modules]]
+file_path = "../extracted/jj8.xex"
+guest_path = "jj8.xex"
+out_directory_path = "../generated/jj8"
+includes = [ "rfa_jj8_rexglue.toml" ]

@@ -65,6 +65,12 @@ case "$NAME" in
     # ("no DLC") lets the game take its graceful skip path. That's what this flag does.
     GAME_FLAGS+=(--unregistered_function_nonfatal=true)
     ;;
+  raidenfighters)
+    # Raiden Fighters Aces (retail disc, Success/Valcon 2009). default.xex menu renders
+    # at ~64FPS with no special flags. jj6/jj7/jj8.xex are the three games; selecting one
+    # from GAME PLAY presumably goes through XLaunchNewImage (untested).
+    :
+    ;;
 esac
 
 # Seed-save auto-install: some games (Ridge Racer 6) hard-block with a "corrupted save"
