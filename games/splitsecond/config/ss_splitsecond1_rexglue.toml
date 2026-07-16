@@ -2,63 +2,13 @@
 max_jump_extension = 65536
 data_region_threshold = 16
 
-# The format-parser switch at bctr 0x888C6644 (56-arm kShortOffset table at
-# 0x881118F8, base 0x888C6648) is decoded correctly by detectJumpTable, but the
-# whole-table validation rejects it outright because entry[0] (0x888CE3D0) falls
-# outside the bctr's own null-delimited code region — the engine's .text is split
-# into many small regions by embedded data islands, and several of this switch's
-# arms are out-of-line handler functions living in later regions. A config-supplied
-# switch_tables entry bypasses that single-region validation (function_scanner.cpp
-# discoverBlocks now checks configSwitchTables before calling detectJumpTable).
-#
-# All 56 raw entries were captured from rexglue's own static decoder (temporary
-# unconditional-dump instrumentation, since removed) rather than trusted by
-# construction. Of the 56, only 23 land on a 4-byte-aligned address (the only
-# thing a real PPC branch target can be); the other 33 decode to genuinely
-# misaligned addresses under the disassembly-verified formula
-# target = 0x888C6648 + table[index] (confirmed instruction-by-instruction: lis/addi
-# build both the table base and the target base exactly as expected, lhzx loads the
-# halfword, add computes the sum — no masking of low bits anywhere in the sequence).
-# Exhaustively validated against a SECOND source (guest shm read during a live
-# boot) for entry[0], which matched. So the misalignment is real table content, not
-# a decode bug on our end — likely dead slots for characters this parser's `bgt`
-# bound (0 <= char-'A' <= 55) permits arithmetically but the game never actually
-# emits in a format string. Mapped to the documented null-jump sentinel (target=0,
-# control_flow.cpp build_bctr emits __builtin_trap() for it) so hitting one is a
-# clean, diagnosable crash instead of a bogus goto/call. Aligned entries: 5 are
-# in-region (resolve as InternalLabel automatically) and 16 are out-of-line handler
-# functions elsewhere in the module, added to [functions] below.
-[[switch_tables]]
-address = 0x888C6644
-register = 11
-labels = [
-  0x888CE3D0, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x888D65D8, 0x00000000, 0x888C81C0,
-  0x00000000, 0x888C91C0, 0x888CE32C, 0x888CA1C0, 0x00000000, 0x888C91C0, 0x00000000, 0x888CA1C0,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x888C6688,
-  0x888C9FA8, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x888C68C0, 0x00000000, 0x00000000,
-  0x00000000, 0x888D505C, 0x00000000, 0x888C6D7C, 0x00000000, 0x888D5E48, 0x00000000, 0x888D6644,
-  0x00000000, 0x888C6648, 0x00000000, 0x00000000, 0x00000000, 0x888C6668, 0x00000000, 0x888C9CB8,
-  0x00000000, 0x888CA85C, 0x00000000, 0x888C6648, 0x888CA7E0, 0x888D6614, 0x888C9EA8, 0x00000000,
-]
-
+# No hints needed. The engine's data (.rdata/.pdata, including the 56-arm
+# format-parser jump table at 0x881118F8 for the bctr at 0x888C6644) decodes
+# natively now that codegen snapshots each module's image right after its own
+# load: SKIPPER.DLL's base 0x98000000 aliases the engine's 0x88000000 range
+# (same physical backing, 4K- vs 64K-page views), so loading skipper second
+# used to overwrite the engine's entire .rdata/.pdata in codegen's view.
 [functions]
-# Aligned out-of-line arms of the 0x888C6644 switch (see note above). Registering
-# them here gives them FunctionAuthority::CONFIG, so classifyTarget's
-# isEntryPoint() check finds them and the switch emits a proper call+return
-# instead of REX_FATAL("... unresolved at bctr 0x888C6644").
-0x888C6D7C = {}
-0x888C81C0 = {}
-0x888C91C0 = {}
-0x888C9CB8 = {}
-0x888C9EA8 = {}
-0x888C9FA8 = {}
-0x888CA1C0 = {}
-0x888CA7E0 = {}
-0x888CA85C = {}
-0x888CE32C = {}
-0x888CE3D0 = {}
-0x888D505C = {}
-0x888D5E48 = {}
-0x888D65D8 = {}
-0x888D6614 = {}
-0x888D6644 = {}
+# Dispatched via ctr from 0x88210EE0 (CRT startup area) during engine DllMain;
+# reached only through a runtime-computed pointer so discovery can't see it.
+0x8862B100 = {}
