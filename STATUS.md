@@ -74,6 +74,42 @@ mis-defaulted. Choplifter's RTs are `k_8_8_8_8` + `k_2_10_10_10_FLOAT` (7e3 HDR,
 `color_exp_bias = -3`. Suspects: the 7e3/float10 clamp in the shader RB output path, the
 transfer/dump shaders, `color_exp_bias` application, or fork-only `direct_host_resolve` (default on).
 
+### 2026-07-17 audit: the RB encode itself is CLEAN — suspects are fork-only FBO features
+
+A full token-level diff of the RB output path against xenia found the 7e3 pack/unpack, exp-bias
+compute+apply, fixed-16 −5 gate, and the whole blend translation **semantically identical** — stop
+re-auditing those. The divergences are all fork-only behaviors that exist ONLY on the host-RT path
+(exactly why FSI is clean), ranked:
+
+1. **`gamma_render_target_as_unorm16` (cvar default TRUE)** — fork blends gamma RTs in LINEAR on
+   `R16G16B16A16_UNORM`; xenia hard-disables this (`vulkan_render_target_cache.cc:530`) and blends
+   in GAMMA space on `R8G8B8A8`. Every blended pixel into a `k_8_8_8_8_GAMMA` RT differs. Prime
+   suspect for the red shift. A/B: `--gamma_render_target_as_unorm16=false`.
+2. Fork implements alpha-to-mask (+ `gl_SampleMask` written by every RT0 shader); xenia-Vulkan has
+   a TODO and never applies it. (PGR3 glass confetti: `--alpha_to_mask=false` did NOT fix, so a2m
+   alone isn't that bug — but the always-written sample mask is still fork-only.)
+3. Async placeholder pipelines: on pipeline-creation FAILURE the `discard`-FS placeholder is kept
+   forever (`pipeline_cache.cpp:3565`) — a permanently-missing material renders as stale dst.
+4. Dynamic rendering (fork-only, default on): ownership-transfer pipeline format omits
+   `key.msaa_samples` (`render_target_cache.cpp:4714`) — latent mismatch on 2xMSAA transfers.
+
+PGR3 datapoint: car-glass "disco confetti" is FBO-only (FSI renders glass clean, user-verified);
+scene RT is `k_2_10_10_10_FLOAT_AS_16_16_16_16` (host RGBA16F, 2xMSAA). Forensic RenderDoc capture:
+`pgr3race_frame126545.rdc` (glass draw eid 9707). NOTE: xenia-Vulkan was never actually verified to
+render PGR3 glass correctly — "identical to xenia" and "still broken" can both be true; FSI is the
+only known-good reference for this class.
+
+### Bisect results (Choplifter title-screen mean R−G; broken=+11.1, FSI-correct=−8.2)
+
+ALL four cvar-gated candidates are EXONERATED — each still measures +11.0:
+`--gamma_render_target_as_unorm16=false`, `--vulkan_dynamic_rendering=false`,
+`--direct_host_resolve=false`, and (on PGR3 glass) `--alpha_to_mask=false`. The divergence is in
+code no cvar bypasses. Next session: capture-forensics through the FBO display chain with the
+PGR3-proven method — RenderDoc auto-capture (REX_RENDERDOC_CAPTURE_DRAWS/SIZE), pixel-history the
+same pixel on FBO vs FSI runs, and walk resolve→frontbuffer→present numerically to find where the
+values fork. The presenter/swap gamma pipeline was OUTSIDE the 2026-07-17 RB audit's scope and is
+now the top unaudited suspect.
+
 ## `bringup.sh` now harvests codegen's unresolved branch targets
 
 The grind loop only ever scraped addresses from the **runtime** FATAL. But codegen separately
