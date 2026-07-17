@@ -69,12 +69,47 @@ case "$NAME" in
     # Project Gotham Racing 3 (retail disc launch title, 4D5307D1). Boots to race
     # loading screens in attract; batched bringup via unregistered_function_nonfatal.
     GAME_FLAGS+=(--unregistered_function_nonfatal=true)
+    # NOTE: unlike ridgeracer/rr6/choplifter, PGR3 renders WORSE on FSI (heavy blocky
+    # corruption on trees/crowd/barriers); the default FBO path draws the world cleanly.
+    # Known FBO residue: black sky + noise on the car's reflection map (RT/cubemap class).
+    # PGR3's present loop is unthrottled (1600+ FPS observed) and the presenter picks
+    # IMMEDIATE mode -> tearing across the whole frame. Disallow immediate+mailbox so
+    # the swapchain falls back to FIFO (real vsync), which also paces the guest loop.
+    GAME_FLAGS+=(--vulkan_allow_present_mode_immediate=false)
+    GAME_FLAGS+=(--vulkan_allow_present_mode_mailbox=false)
+    # ...and the guest itself free-runs its present loop, so the UI thread samples the
+    # output mid-overwrite (in-frame tearing even with FIFO). Cap guest swaps at the
+    # title's native 30fps: a 60 cap on the ~46fps-capable sim gave an uneven 40-60
+    # cadence that read as jitter; locked 30 matches the 360 cadence.
+    GAME_FLAGS+=(--frame_limit=30)
+    # Foliage/crowd/barrier alpha-tested surfaces show blocky per-frame corruption on
+    # NVIDIA (same class as RR6's flickering trees): alpha compare sits exactly on the
+    # cutout boundary. The fuzzy epsilon window stabilizes it.
+    GAME_FLAGS+=(--use_fuzzy_alpha_epsilon=true)
+    # Async pipeline compilation is on, but skipping incomplete frames DROPS whole
+    # frames during each compile burst (291 new pipelines in one short race session)
+    # — felt as "moves in stages" freezing. Present placeholder frames instead:
+    # motion stays continuous, at the cost of brief object pop-in on new content.
+    GAME_FLAGS+=(--vulkan_async_skip_incomplete_frames=false)
+    # "Disco windscreen" confetti: NOT alpha-to-mask (--alpha_to_mask=false changes
+    # nothing, and there is no fixed-function a2c in the Vulkan pipeline) — the
+    # dither is the game's own screen-door transparency; the defect is the colour
+    # the kept lattice pixels get from the FBO RB path. Forensics in the RenderDoc
+    # capture pgr3race_frame126545.rdc (glass draws are full-coverage, lattice is
+    # in the depth buffer, one glass sub-draw outputs the car body colour).
+    # [TEMP DIAG — remove when the glass-confetti bug is fixed] Arm an automatic
+    # RenderDoc capture of the first dense race frame (and F12 for manual ones).
+    # Captures land in games/pgr3/diag/.
+    mkdir -p "$G/diag"
+    export ENABLE_VULKAN_RENDERDOC_CAPTURE=1
+    export REX_RENDERDOC_CAPTURE_DRAWS=400:120
+    export REX_RENDERDOC_CAPTURE_PATH="$G/diag/pgr3"
     ;;
   raidenfighters)
-    # Raiden Fighters Aces (retail disc, Success/Valcon 2009). default.xex menu renders
-    # at ~64FPS with no special flags. jj6/jj7/jj8.xex are the three games; selecting one
-    # from GAME PLAY presumably goes through XLaunchNewImage (untested).
-    :
+    # Raiden Fighters Aces (retail disc, Success/Valcon 2009): menu + jj6/jj7/jj8.xex
+    # game modules. Discovery is converged via batching, but stragglers on rarely-taken
+    # paths still surface; degrade them to nulled calls instead of dying mid-play.
+    GAME_FLAGS+=(--unregistered_function_nonfatal=true)
     ;;
 esac
 
