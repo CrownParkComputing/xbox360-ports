@@ -1,0 +1,17 @@
+# Project Gotham Racing 3 (retail disc launch title, Bizarre Creations 2005).
+# setjmp/longjmp found by body signature (adjacent CRT pair):
+# setjmp 0x82420D60 = 18x stfd f14..f31 -> 0(r3); longjmp 0x82420C40 = early
+# lwz r0,312(r3), r3 copied, 18 FPR loads.
+setjmp_address = 0x82420D60
+longjmp_address = 0x82420C40
+
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+[functions]
+# codegen-reported unresolved b target
+0x823B8A40 = {}
+0x823B8810 = {}
+0x823DC6F8 = {}
+0x8248B8D0 = {}

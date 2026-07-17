@@ -1,0 +1,8 @@
+[project]
+sdk_version = "0.8.0"
+name = "pgr3"
+game_root = "../extracted"
+[entrypoint]
+file_path = "../extracted/default.xex"
+out_directory_path = "../generated"
+includes = [ "pgr_rexglue.toml" ]

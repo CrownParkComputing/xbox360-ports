@@ -65,6 +65,11 @@ case "$NAME" in
     # ("no DLC") lets the game take its graceful skip path. That's what this flag does.
     GAME_FLAGS+=(--unregistered_function_nonfatal=true)
     ;;
+  pgr3)
+    # Project Gotham Racing 3 (retail disc launch title, 4D5307D1). Boots to race
+    # loading screens in attract; batched bringup via unregistered_function_nonfatal.
+    GAME_FLAGS+=(--unregistered_function_nonfatal=true)
+    ;;
   raidenfighters)
     # Raiden Fighters Aces (retail disc, Success/Valcon 2009). default.xex menu renders
     # at ~64FPS with no special flags. jj6/jj7/jj8.xex are the three games; selecting one
