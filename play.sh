@@ -91,6 +91,10 @@ case "$NAME" in
     # — felt as "moves in stages" freezing. Present placeholder frames instead:
     # motion stays continuous, at the cost of brief object pop-in on new content.
     GAME_FLAGS+=(--vulkan_async_skip_incomplete_frames=false)
+    # Perf: reuse unchanged texture/sampler descriptor sets across draws instead
+    # of rewriting them for every one of the ~3-4k draws in a race frame
+    # (smoke-verified in-race; default-off SDK cvar while it soaks).
+    GAME_FLAGS+=(--vulkan_reuse_texture_descriptors=true)
     # "Disco windscreen" confetti: NOT alpha-to-mask (--alpha_to_mask=false changes
     # nothing, and there is no fixed-function a2c in the Vulkan pipeline) — the
     # dither is the game's own screen-door transparency; the defect is the colour
