@@ -102,6 +102,28 @@ tools/bringup.sh mygame mg
 Requirements: Linux x86-64, Clang, CMake ≥ 3.21, Ninja, a Vulkan-capable GPU,
 your own legally-dumped games, and roughly 10 GB of disk per large title.
 
+### Single-game quickstart (minimal download)
+
+The repository is tiny (~160 KB — no game content is ever committed), but if
+you only want one title's recipe plus the shared tooling, sparse-checkout it
+and skip building the SDK by using the
+[prebuilt toolchain](https://github.com/CrownParkComputing/rexglue-sdk/releases/latest):
+
+```sh
+git clone --filter=blob:none --sparse https://github.com/CrownParkComputing/xbox360-ports.git
+cd xbox360-ports
+git sparse-checkout set games/pgr3 tools docs        # pick your game dir
+
+# prebuilt toolchain instead of compiling the SDK:
+curl -LO https://github.com/CrownParkComputing/rexglue-sdk/releases/latest/download/rexglue-linux-x86_64.tar.gz
+tar xzf rexglue-linux-x86_64.tar.gz
+```
+
+Point the game's build at the extracted toolchain, supply your own dump under
+`games/<name>/extracted`, and build/play as above. The GPU plugin
+(`librexgpu-xenos.so`) must sit next to the built game binary — the tooling
+stages it automatically.
+
 Full instructions, layout, and troubleshooting live in the
 [repository README](https://github.com/CrownParkComputing/xbox360-ports#readme).
 
