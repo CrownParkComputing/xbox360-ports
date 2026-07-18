@@ -113,6 +113,14 @@ case "$NAME" in
     export REX_RENDERDOC_CAPTURE_DRAWS=400:120
     export REX_RENDERDOC_CAPTURE_PATH="$G/diag/pgr3"
     ;;
+  soulcalibur)
+    # After the "LOADING" screen finishes it waits for a fire (A) press to reach
+    # the menu. Auto-advance by PULSING A (200ms tap every 1.5s) so there's always
+    # a fresh button-down edge whenever loading completes — a plain hold gives only
+    # one edge and misses the gate if loading finishes mid-hold. Needs a connected
+    # controller (per-game keyboard driver is Win32-only, inert on Linux).
+    GAME_FLAGS+=(--synth_button=a --synth_start_ms=0 --synth_end_ms=200 --synth_period_ms=1500)
+    ;;
   geometrywars)
     # Geometry Wars: Retro Evolved. Same revival as Daytona — the two Vulkan
     # readback cvars flip it from "silent no-present stall" to rendering its
