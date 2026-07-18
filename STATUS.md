@@ -8,12 +8,12 @@ plus any per-game workaround flags — see `play.sh`).
 
 | Game | Verdict |
 |------|---------|
-| SoulCalibur | "perfect" — fixed by setjmp/longjmp config (see below) |
-| SoulCalibur II HD | "working 100%" — fixed by the SPIR-V shader resync + load-shader pitch contract |
+| SoulCalibur | plays; setjmp/longjmp fix. NOTE: after the "LOADING" art screen it waits for a **fire (A) press** to reach the menu — auto-advanced in play.sh by pulsing A (per-game keyboard driver is Win32-only, INERT on Linux → needs a gamepad). |
+| SoulCalibur II HD | plays (SPIR-V resync + load-shader pitch). OPEN: in-fight **backgrounds render as scrambled black/white blocks** — a texture-format/pitch decode corruption (not the loop logic); needs a targeted fix. |
 | Bubble Bobble Neo | works — setjmp/longjmp fix |
 | Space Giraffe | works — same fix + thunk-cluster batch |
 | Hydro Thunder Hurricane | works fine; white/untextured surfaces fixed by the exp_adjust fix |
-| OutRun | plays well; gear-change SFX loops (XMA one-shot completion bug) |
+| OutRun | plays well; gear-change SFX "crackle" — RUNTIME-TRACED 2026-07-18: NOT a loop (0 loop contexts), a decode-level PCM artifact; deprioritized (cosmetic). |
 | Choplifter HD | plays; colours correct **only via `--render_target_path_vulkan=fsi`**, which `play.sh` now passes automatically. See "Host render-target path" below. |
 
 ## 2-NEEDS-FIXES (runs, impaired)
@@ -22,6 +22,20 @@ plus any per-game workaround flags — see `play.sh`).
 |------|---------|-----------|
 | Bionic Commando Rearmed 1 | **renders, but frozen** — the picture appears and never advances | Crash is GONE: codegen is clean (0 unresolved calls) and it presents ~2400 frames with **zero fatals**, 116 fns in toml. The guest is ALIVE (timers fire, APCs deliver) but its logic never advances; every presented frame is byte-identical. Fixed along the way: `cache:` was unmounted so its `cache:\` opens failed (now mounted — real bug, but NOT the freeze). Prime suspect: **`XamTaskCloseHandle` is a stub** — XamTask is the async-task API; if a scheduled task never signals completion the title blocks forever on a loading screen. Compare `src/kernel/xam/` against xenia's `xam_task.cc` (xenia implements `XamTaskSchedule`/`XamTaskCloseHandle`). Also seen: `BroadcastNotification -> 0 listeners`. Next: run the same xex under xenia (oracle) to confirm it gets further. |
 | Jetpac Refuelled | title art + in-game sprites invisible (geometry draws, nothing shown) | NOT the exp_adjust bug and NOT fixed by `fsi` (which makes it fully black). Localized: the invisible content is drawn by ONE pixel shader (`PS FE2EB03A937B160F`, `tfetch3D` + `mul oC0, r0, r1`) whose fetch constant says `k2DOrStacked` — the 3D-or-stacked ambiguous path. Ruled out: alpha/blend (the *opaque* draw is invisible too), DXT2_3 handling, geometry shaders, EDRAM path, guest-side art decode (the DXT1 data at `0x1DA1C000` is real). Next: force the fetch result to (1,1,1,1) in `spirv_translator_fetch.cpp` — if solid quads appear, it's the texture sample (array-layer index for a stacked texture); if not, it's the geometry. |
+
+## CROSS-GAME open issue: dual-monitor swapchain thrash
+
+On a multi-monitor X display the Vulkan presenter sizes the swapchain to the
+**full virtual desktop** (e.g. 5120x1440 = 2x 2560x1440) and thrashes recreating
+it at odd sizes (5096x1380, 1261x1380). Suspected behind SC1's rough loading,
+SC2 background corruption, and PGR3 window weirdness. `--monitor=1` did NOT
+constrain it in testing. Prime shared fix — next PGR3-adjacent target.
+
+## Downloads
+
+Per-game build packs (config + scaffold + build_and_play.sh, NO game code) are
+published as GitHub releases (`game-packs-v1`). `tools/make_gamepack.sh <game>`
+regenerates them; every per-game fix flag is auto-baked from play.sh.
 
 ## 3-NOT-WORKING
 
