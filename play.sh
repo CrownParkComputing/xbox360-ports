@@ -95,6 +95,10 @@ case "$NAME" in
     # of rewriting them for every one of the ~3-4k draws in a race frame
     # (smoke-verified in-race; default-off SDK cvar while it soaks).
     GAME_FLAGS+=(--vulkan_reuse_texture_descriptors=true)
+    # NOTE: --vulkan_submit_on_primary_buffer_end=false was tried for the
+    # sync-bubble theory (CPU idle + GPU 27-40% during slow races) but showed
+    # no utilization gain and BLACK-SCREENS when combined with frame_limit=0
+    # (submissions batch indefinitely, nothing presents). Keep default.
     # "Disco windscreen" confetti: NOT alpha-to-mask (--alpha_to_mask=false changes
     # nothing, and there is no fixed-function a2c in the Vulkan pipeline) — the
     # dither is the game's own screen-door transparency; the defect is the colour
@@ -114,6 +118,19 @@ case "$NAME" in
     # game modules. Discovery is converged via batching, but stragglers on rarely-taken
     # paths still surface; degrade them to nulled calls instead of dying mid-play.
     GAME_FLAGS+=(--unregistered_function_nonfatal=true)
+    ;;
+  daytona)
+    # Daytona USA (XBLA). RENDERS (textured menus verified) once the two Vulkan
+    # readback cvars are on — the sibling Subarasheese/daytona-xbla-recomp bakes
+    # these into main.cpp; our tree deleted them and play.sh never restored them,
+    # which is why it looked like "never presents a frame". These flip it to
+    # actually running. (The removed vulkan_force_dxt45_rgba8_decode no longer
+    # exists in our SDK.)
+    GAME_FLAGS+=(--vulkan_readback_memexport=true --vulkan_readback_resolve=true)
+    # Flicker fix (same as pgr3): present placeholder frames during async pipeline
+    # compile bursts instead of dropping whole frames, which alternate real/skipped
+    # and read as heavy flicker.
+    GAME_FLAGS+=(--vulkan_async_skip_incomplete_frames=false)
     ;;
 esac
 
