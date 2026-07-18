@@ -16,6 +16,18 @@ backend. The binary then plays the game from your own legally-dumped data.
 
 Several XBLA and retail-disc titles boot, render, and play this way today.
 
+## Downloads
+
+| What | Link |
+|---|---|
+| **ReXGlue toolchain, prebuilt (Linux x86_64)** — recompiler CLI + runtime + Vulkan GPU plugin, no SDK build needed | [rexglue-linux-x86_64.tar.gz](https://github.com/CrownParkComputing/rexglue-sdk/releases/latest) |
+| ReXGlue SDK source | [github.com/CrownParkComputing/rexglue-sdk](https://github.com/CrownParkComputing/rexglue-sdk) |
+| Ports suite (configs, scaffolds, tooling — this site's repo) | [github.com/CrownParkComputing/xbox360-ports](https://github.com/CrownParkComputing/xbox360-ports) · [zip](https://github.com/CrownParkComputing/xbox360-ports/archive/refs/heads/master.zip) |
+
+No game downloads are offered, ever — the downloads above contain zero game
+content. You bring your own legally-dumped games and the toolchain turns them
+into native binaries on your machine (quickstart below).
+
 **Nothing copyrighted is hosted here.** The
 [repository](https://github.com/CrownParkComputing/xbox360-ports) contains only
 recompiler configuration, host-shell scaffolding, tooling, and engineering
