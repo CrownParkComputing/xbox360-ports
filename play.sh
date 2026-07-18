@@ -113,6 +113,15 @@ case "$NAME" in
     export REX_RENDERDOC_CAPTURE_DRAWS=400:120
     export REX_RENDERDOC_CAPTURE_PATH="$G/diag/pgr3"
     ;;
+  geometrywars)
+    # Geometry Wars: Retro Evolved. Same revival as Daytona — the two Vulkan
+    # readback cvars flip it from "silent no-present stall" to rendering its
+    # neon title menu. (Known remaining artifact: horizontal green bands, an
+    # RT/overlay issue to chase separately.)
+    GAME_FLAGS+=(--vulkan_readback_memexport=true --vulkan_readback_resolve=true)
+    GAME_FLAGS+=(--vulkan_async_skip_incomplete_frames=false)
+    GAME_FLAGS+=(--unregistered_function_nonfatal=true)
+    ;;
   raidenfighters)
     # Raiden Fighters Aces (retail disc, Success/Valcon 2009): menu + jj6/jj7/jj8.xex
     # game modules. Discovery is converged via batching, but stragglers on rarely-taken
@@ -131,6 +140,10 @@ case "$NAME" in
     # compile bursts instead of dropping whole frames, which alternate real/skipped
     # and read as heavy flicker.
     GAME_FLAGS+=(--vulkan_async_skip_incomplete_frames=false)
+    # Force FIFO present (disallow immediate/mailbox) — immediate present mode is a
+    # common cause of heavy whole-screen flicker; FIFO gives real vsync. (pgr3 uses
+    # the same.)
+    GAME_FLAGS+=(--vulkan_allow_present_mode_immediate=false --vulkan_allow_present_mode_mailbox=false)
     ;;
 esac
 

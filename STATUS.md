@@ -28,7 +28,7 @@ plus any per-game workaround flags — see `play.sh`).
 | Game | Problem |
 |------|---------|
 | Daytona | **RUNS** (was mis-filed "never presents a frame"). Root cause: our `main.cpp` deleted the two Vulkan readback cvars the working sibling (Subarasheese/daytona-xbla-recomp) bakes in, and play.sh never restored them. With `--vulkan_readback_memexport=true --vulkan_readback_resolve=true` it renders textured menus (verified 1920x1080 save-content screen) and runs interactively. Now in play.sh's `daytona)` case. REMAINING: substantial flickering (async-placeholder frame-skip suspected — `--vulkan_async_skip_incomplete_frames=false` applied, needs eval); intermittent headless `vkQueueSubmit` device-lost still seen in dump runs (submit-path, not render-path). The dead 690-hunk codegen patch is a separate cleanup, NOT the present-blocker. |
-| Geometry Wars | off the old crash (setjmp fix), now silent no-present stall |
+| Geometry Wars | REVIVED — same readback-cvar fix as Daytona renders its neon title menu (verified 1280x720). In play.sh geometrywars) case. Remaining: horizontal green-band overlay artifact (RT/overlay), and interactive playability unverified. |
 | Trials HD | black screen; XUI menu files never load from .pak archives |
 | Rainbow Islands | grind incomplete (setjmp fix applied, more boundaries to clear) |
 | Bionic Commando Rearmed 2 | built, but **zero** functions in its toml and never run — from-scratch bring-up. Try the improved `bringup.sh` first (see below). |
