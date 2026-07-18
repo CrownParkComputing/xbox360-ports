@@ -32,6 +32,7 @@ plus any per-game workaround flags — see `play.sh`).
 | Trials HD | black screen; XUI menu files never load from .pak archives |
 | Rainbow Islands | grind incomplete (setjmp fix applied, more boundaries to clear) |
 | Bionic Commando Rearmed 2 | built, but **zero** functions in its toml and never run — from-scratch bring-up. Try the improved `bringup.sh` first (see below). |
+| SoulCalibur 4 (retail disc, 2026-07-18) | bring-up COMPLETE and codegen-clean (30,056 fns, discovery converged, 0 FATALs, setjmp 0x825E2610/longjmp 0x825E22F0) — but the title stalls after 1 black present on a guest render-ring `NtSignalAndWaitForSingleObjectEx` rendezvous **that upstream xenia fails identically** (compat #1128, "cyan screen"). We are AT xenia parity; further progress = guest RE of the awaited event (main in sub_823A4A70/sub_825468E0). Full report in `games/soulcalibur4/logs/`. |
 
 ---
 

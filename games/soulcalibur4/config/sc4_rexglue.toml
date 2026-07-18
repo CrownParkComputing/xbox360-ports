@@ -1,0 +1,27 @@
+# SoulCalibur IV (retail disc, EUR) — raw XEX2, loose disc data via extracted symlink.
+#
+# setjmp/longjmp must be recompiled as real host setjmp/longjmp (the fix that unblocked
+# every game in this suite). Found by body signature in the generated code:
+#   setjmp  0x825E2610 = stfd f14..f31 -> 0(r3) (18 FPR stores) + mfcr
+#   longjmp 0x825E22F0 = early lwz r0,312(r3); mr r7,r3; lfd f14..f31 <- 0(r7)
+setjmp_address = 0x825E2610
+longjmp_address = 0x825E22F0
+
+[analysis]
+max_jump_extension = 65536
+data_region_threshold = 16
+
+# Indirect-call targets harvested from codegen unresolved-branch reports and runtime
+# "[FATAL] Call to invalid or unregistered function at guest address 0xN".
+[functions]
+0x82410A18 = {}
+0x82412EF0 = {}
+0x82412EF8 = {}
+0x82412F00 = {}
+0x8242EF28 = {}
+0x82590E38 = {}
+0x82585B98 = {}
+0x8239DAA8 = {}
+0x823A8DC0 = {}
+0x82582130 = {}
+0x825A2E80 = {}
